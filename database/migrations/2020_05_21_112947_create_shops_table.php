@@ -30,8 +30,8 @@ class CreateShopsTable extends Migration
             $table->text('shop_address')->comment('店舗住所');
             $table->double('shop_address_lat', 10, 7)->comment('店舗緯度')->index();
             $table->double('shop_address_lng', 10, 7)->comment('店舗軽度')->index();
-            $table->date('created_at');
-            $table->date('modified_at');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
