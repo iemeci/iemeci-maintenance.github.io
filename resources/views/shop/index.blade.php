@@ -5,7 +5,7 @@
         <main class="l-main">
             <div class="l-content">
                 <div class="c-location-header">
-                    <div class="c-location-area"><span class="c-location-post_number">〒 150-0022</span><span class="c-location-address">東京都渋谷区恵比寿南3-5-7ああああああああ</span></div>
+                    <div class="c-location-area"><span class="c-location-post_number">〒 {{ $post_address[1] }}</span><span class="c-location-address">{{ $post_address[2] }}</span></div>
                     <div class="c-location-count"><span class="c-location-count_num">{{ $shops->total() }}</span><span class="c-location-count_unit">件</span></div>
                 </div>
                 <div class="c-shop">
@@ -73,15 +73,7 @@
                         @endforeach
                     </ul>
                 </div>
-                {{ $shops->links('pagination::default') }}
-                <div class="c-pager">
-                    <div class="c-pager-list">
-                        <div class="c-pager-item"><span class="c-pager-current">1</span></div>
-                        <div class="c-pager-item"><a class="c-pager-link" href="#">2</a></div>
-                        <div class="c-pager-item"><a class="c-pager-link" href="#">3</a></div>
-                        <div class="c-pager-item"><a class="c-pager-link" href="#">4</a></div>
-                    </div>
-                </div>
+                {{ $shops->appends(['lat' => $lat, 'lng' => $lng])->links('pagination::default') }}
             </div>
         </main>
     </div>

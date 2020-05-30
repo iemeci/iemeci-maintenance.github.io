@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Shop;
 use Illuminate\Support\Facades\DB;
+use function GuzzleHttp\json_decode;
 
 class ShopController extends Controller
 {
@@ -15,6 +16,7 @@ class ShopController extends Controller
      */
     public function index(Request $request)
     {
+
         // 距離の算出ロジック
         $distance = '6371 * acos( -- kmの場合は6371、mileの場合は3959
               cos(radians(?))
@@ -27,9 +29,17 @@ class ShopController extends Controller
         // 現在地
         $lat = (float) $request->input('lat');
         $lng = (float) $request->input('lng');
-//        dd([$lat, $lng]);
 
-        // dd($request);
+        if($lat and $lng) {
+            // 現在地
+            $url = "https://maps.googleapis.com/maps/api/geocode/json?language=ja&latlng=" . $lat . "," . $lng . "&key=" . 'AIzaSyC7mGPxgE9M6hkvK7lboY6GCnAxIGjNccU';
+            $json = json_decode(file_get_contents($url))->results;
+            $formatted_address = $json[0]->formatted_address;
+            preg_match("/^.*?、〒([0-9]{3}-[0-9]{4})\s(.*)/", $formatted_address, $post_address);
+        }
+
+
+        // 検索
         $shops = DB::table('shops')
             ->selectRaw("
                 shop_id,
@@ -58,7 +68,7 @@ class ShopController extends Controller
             ->paginate(10);
 //        dd(compact('shops'));
 
-        return view('shop.index', compact('shops'));
+        return view('shop.index', compact(['shops', 'post_address', 'lat', 'lng']));
     }
 
     /**
