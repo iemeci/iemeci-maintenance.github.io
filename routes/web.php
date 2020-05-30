@@ -17,6 +17,4 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/search', function () {
-    return view('shop.index');
-});
+Route::get('/search', 'shopController@index')->name('shop.index');

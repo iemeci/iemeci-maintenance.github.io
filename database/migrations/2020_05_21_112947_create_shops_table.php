@@ -21,7 +21,7 @@ class CreateShopsTable extends Migration
             $table->text('shop_name')->comment('店舗名');
             $table->text('shop_category_name')->comment('店舗カテゴリー名')->nullable();
             $table->float('shop_score', 3, 2)->comment('店舗スコア')->nullable();
-            $table->text('shop_shop_thumbnail_url')->comment('店舗サムネイルURL')->nullable();
+            $table->text('shop_thumbnail_url')->comment('店舗サムネイルURL')->nullable();
             $table->text('shop_url_tabelog')->comment('店舗食べログURL')->nullable();
             $table->text('shop_url_uber_eats')->comment('店舗UberEats URL')->nullable();
             $table->text('shop_url_demaekan')->comment('店舗出前館 URL')->nullable();

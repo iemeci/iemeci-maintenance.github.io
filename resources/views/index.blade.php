@@ -8,16 +8,22 @@
                     <div class="c-catch-catch">
                         <div class="c-catch-visual"></div>
                         <div class="c-catch-button-wrap">
-                            <div class="c-catch-button-area"><button class="c-catch-button" onclick="location.href='/location.html'"><i class="c-catch-button-icon"></i><span class="c-catch-button-label">配達可能なお店を探す</span></button></div>
+                            <div class="c-catch-button-area">
+                                <form action="{{ route('shop.index') }}" name="submit_location">
+                                    <input type="hidden" name="lat" value="">
+                                    <input type="hidden" name="lng" value="">
+                                    <button class="c-catch-button js-submit-location"><i class="c-catch-button-icon"></i><span class="c-catch-button-label">配達可能なお店を探す</span></button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="c-sns">
                     <ul class="c-sns-list">
-                        <li class="c-sns-item"><a href="https://social-plugins.line.me/lineit/share?url=https://iemeci.com/" target="blank"><img src="/assets/img/btn_line.svg" alt="LINE" width="40" height="40"></a></li>
-                        <li class="c-sns-item"><a href="https://www.facebook.com/sharer/sharer.php?u=https://iemeci.com/" target="blank"><img src="/assets/img/btn_facebook.svg" alt="Facebook" width="40" height="40"></a></li>
-                        <li class="c-sns-item"><a href="https://twitter.com/intent/tweet?url=https://iemeci.com/" target="blank"><img src="/assets/img/btn_twitter.svg" alt="Twitter" width="40" height="40"></a></li>
-                        <li class="c-sns-item"><a class="js-copy" href="javascript:void(0);https://iemeci.com/" target=""><img src="/assets/img/btn_link.svg" alt="コピー" width="40" height="40"></a></li>
+                        <li class="c-sns-item"><a href="https://social-plugins.line.me/lineit/share?url=https://iemeci.com/" target="blank"><img src="{{ asset('img/btn_line.svg') }}" alt="LINE" width="40" height="40"></a></li>
+                        <li class="c-sns-item"><a href="https://www.facebook.com/sharer/sharer.php?u=https://iemeci.com/" target="blank"><img src="{{ asset('img/btn_facebook.svg') }}" alt="Facebook" width="40" height="40"></a></li>
+                        <li class="c-sns-item"><a href="https://twitter.com/intent/tweet?url=https://iemeci.com/" target="blank"><img src="{{ asset('img/btn_twitter.svg') }}" alt="Twitter" width="40" height="40"></a></li>
+                        <li class="c-sns-item"><a class="js-copy" href="javascript:void(0);" target=""><img src="{{ asset('img/btn_link.svg') }}" alt="コピー" width="40" height="40"></a></li>
                     </ul>
                 </div>
                 <div class="c-hero">
