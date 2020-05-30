@@ -18,3 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/search', 'shopController@index')->name('shop.index');
+
+Route::get('/info/privacy_policy', function() {
+    return view('info.privacy_policy');
+})->name('info.privacy_policy');

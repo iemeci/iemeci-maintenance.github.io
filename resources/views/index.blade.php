@@ -20,10 +20,10 @@
                 </div>
                 <div class="c-sns">
                     <ul class="c-sns-list">
-                        <li class="c-sns-item"><a href="https://social-plugins.line.me/lineit/share?url=https://iemeci.com/" target="blank"><img src="{{ asset('img/btn_line.svg') }}" alt="LINE" width="40" height="40"></a></li>
-                        <li class="c-sns-item"><a href="https://www.facebook.com/sharer/sharer.php?u=https://iemeci.com/" target="blank"><img src="{{ asset('img/btn_facebook.svg') }}" alt="Facebook" width="40" height="40"></a></li>
-                        <li class="c-sns-item"><a href="https://twitter.com/intent/tweet?url=https://iemeci.com/" target="blank"><img src="{{ asset('img/btn_twitter.svg') }}" alt="Twitter" width="40" height="40"></a></li>
-                        <li class="c-sns-item"><a class="js-copy" href="javascript:void(0);" target=""><img src="{{ asset('img/btn_link.svg') }}" alt="コピー" width="40" height="40"></a></li>
+                        <li class="c-sns-item"><a href="https://social-plugins.line.me/lineit/share?url={{ config('app.url') }}/" target="blank"><img src="{{ asset('img/btn_line.svg') }}" alt="LINE" width="40" height="40"></a></li>
+                        <li class="c-sns-item"><a href="https://www.facebook.com/sharer/sharer.php?u={{ config('app.url') }}/" target="blank"><img src="{{ asset('img/btn_facebook.svg') }}" alt="Facebook" width="40" height="40"></a></li>
+                        <li class="c-sns-item"><a href="https://twitter.com/intent/tweet?url={{ config('app.url') }}/&text={{ config('app.name') . config('app.name_description') }}" target="blank"><img src="{{ asset('img/btn_twitter.svg') }}" alt="Twitter" width="40" height="40"></a></li>
+                        <li class="c-sns-item"><a class="js-copy" href="javascript:void(0);" data-title="{{ config('app.name') . config('app.name_description') }}"><img src="{{ asset('img/btn_link.svg') }}" alt="コピー" width="40" height="40"></a></li>
                     </ul>
                 </div>
                 <div class="c-hero">
@@ -38,7 +38,7 @@
                     <h2 class="c-services-heading">現在対応している宅配サービス</h2>
                     <ul class="c-services-list">
                         <li class="c-services-item">出前館</li>
-                        <li class="c-services-item">LINEデリマ</li>
+                        <li class="c-services-item">楽天デリバリー</li>
                         <li class="c-services-item">dデリバリー</li>
                         <li class="c-services-item">Uber Eats</li>
                     </ul>
