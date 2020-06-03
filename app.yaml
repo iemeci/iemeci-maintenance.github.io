@@ -16,3 +16,5 @@ env_variables:
   VIEW_COMPILED_PATH: /tmp
   SESSION_DRIVER: cookie
   LOG_CHANNEL: stackdriver
+  APP_DEBUG: false
+
