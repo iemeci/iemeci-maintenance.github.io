@@ -7,5 +7,11 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:8889/iemeci</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="uncopi_iemeci@mysql624.db.sakura.ne.jp" uuid="7ea0a1a6-f930-4518-b882-3e37b576c299">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://mysql624.db.sakura.ne.jp:3306/uncopi_iemeci</jdbc-url>
+    </data-source>
   </component>
 </project>

@@ -13,6 +13,7 @@ env_variables:
   ## Put production environment variables here.
   APP_KEY: base64:EEEVx53H8H7SII+7H1vC13Fgo81aQmIdN9auxzVJ1uI=
   APP_STORAGE: /tmp
+  APP_ENV: production
   VIEW_COMPILED_PATH: /tmp
   SESSION_DRIVER: cookie
   LOG_CHANNEL: stackdriver
