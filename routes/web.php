@@ -19,7 +19,7 @@ Route::group(['middleware' => 'auth.very_basic'], function()
         return view('index');
     });
 
-    Route::get('/search', 'shopController@index')->name('shop.index');
+    Route::get('/search', 'ShopController@index')->name('shop.index');
 
     Route::get('/info/privacy_policy', function () {
         return view('info.privacy_policy');
