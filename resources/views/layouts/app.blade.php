@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{{ config('app.name') }}{{ config('app.name_description') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
+    <script src="{{ secure_asset('js/app.js') }}" defer></script>
 </head>
 <body>
 <div class="l-page">
     <header class="l-header">
         <div class="l-header_inner">
             <div class="p-header"><a class="p-header_brand" href="/">
-                    <div class="p-header_brand-logo"><img src="{{ asset('/img/site_logo.svg') }}" alt="{{ config('app.name', 'Laravel') }}" width="50" height="40"></div>
+                    <div class="p-header_brand-logo"><img src="{{ secure_asset('/img/site_logo.svg') }}" alt="{{ config('app.name', 'Laravel') }}" width="50" height="40"></div>
                     <div class="p-header_brand-title">{{ config('app.name', 'Laravel') }}</div>
                 </a>
                 <div class="p-header_description">食べログの点数で探せる、<br>宅配サービス一括検索サイト</div>
