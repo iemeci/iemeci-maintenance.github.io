@@ -13,5 +13,11 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://mysql624.db.sakura.ne.jp:3306/uncopi_iemeci</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="heroku_stg" uuid="e9add180-a0e9-4064-84f7-8d327e853100">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://us-cdbr-east-05.cleardb.net:3306/heroku_e091b0bcca18925</jdbc-url>
+    </data-source>
   </component>
 </project>
