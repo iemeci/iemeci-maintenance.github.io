@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{{ config('app.name') }}{{ config('app.name_description') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
-    <script src="{{ secure_asset('js/app.js') }}" defer></script>
+    @if(app('env') == 'production' || app('env') == 'staging')
+        <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
+        <script src="{{ secure_asset('js/app.js') }}" defer></script>
+    @else
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <script src="{{ asset('js/app.js') }}" defer></script>
+    @endif
 </head>
 <body>
 <div class="l-page">
