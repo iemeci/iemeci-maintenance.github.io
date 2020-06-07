@@ -12,7 +12,7 @@
 
         // Environments where the middleware is active. Use "*" to protect all envs
         'envs'              => [
-            'production'
+            'production', 'staging'
         ],
 
         // Message to display if the user "opts out"/clicks "cancel"
