@@ -85,6 +85,7 @@ mix.js('resources/js/app.js', 'public/js')
                 optimizationLevel: 5
             },
             // jpegtran: null,
+            svgo: null,
             plugins: [
                 require('imagemin-mozjpeg')({
                     quality: 50,
