@@ -18,7 +18,11 @@
     <header class="l-header">
         <div class="l-header_inner">
             <div class="p-header"><a class="p-header_brand" href="/">
+                    @if(app('env') == 'production' || app('env') == 'staging')
                     <div class="p-header_brand-logo"><img src="{{ secure_asset('/img/site_logo.svg') }}" alt="{{ config('app.name', 'Laravel') }}" width="50" height="40"></div>
+                    @else
+                    <div class="p-header_brand-logo"><img src="{{ asset('/img/site_logo.svg') }}" alt="{{ config('app.name', 'Laravel') }}" width="50" height="40"></div>
+                    @endif
                     <div class="p-header_brand-title">{{ config('app.name', 'Laravel') }}</div>
                 </a>
                 <div class="p-header_description">食べログの点数で探せる、<br>宅配サービス一括検索サイト</div>

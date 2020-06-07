@@ -98,7 +98,7 @@ body {
     background: url("../img/header_visual.jpg") no-repeat;
     height: 230px;
     background-size: cover;
-    opacity: 50%;
+    opacity: 0.5;
     @include mq(medium) {
       height: 300px;
       background-position: center center;
