@@ -27,5 +27,9 @@
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0",
         "vue-template-compiler": "^2.6.11"
+    },
+    "dependencies": {
+        "@analytics/google-analytics": "^0.4.0",
+        "analytics": "^0.5.1"
     }
 }
