@@ -42,7 +42,8 @@ class ShopController extends Controller
         // 検索
         $shops = DB::table('shops')
             ->selectRaw("
-                shop_id,
+                shop_tabelog_id,
+                shop_postcode,
                 shop_pref,
                 shop_area,
                 shop_name,
