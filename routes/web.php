@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'auth.very_basic'], function()
+{
+    Route::get('/', function () {
+        return view('index');
+    });
+
+    Route::get('/search', 'ShopController@index')->name('shop.index');
+
+    Route::get('/info/privacy_policy', function () {
+        return view('info.privacy_policy');
+    })->name('info.privacy_policy');
 });

@@ -1,0 +1,80 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="l-contents_inner">
+        <main class="l-main">
+            <div class="l-content">
+                <div class="c-location-header">
+                    <div class="c-location-area"><span class="c-location-post_number">〒 {{ $post_address[1] }}</span><span class="c-location-address">{{ $post_address[2] }}</span></div>
+                    <div class="c-location-count"><span class="c-location-count_num">{{ $shops->total() }}</span><span class="c-location-count_unit">件</span></div>
+                </div>
+                <div class="c-shop">
+                    <ul class="c-shop-list">
+                        @foreach($shops as $shop)
+{{--                            {{ $shop->shop_id }}--}}
+                            <li class="c-shop-item">
+                                <div class="c-shop-link">
+                                    <div class="c-shop-image"><img src="{{ $shop->shop_thumbnail_url }}" alt=""></div>
+                                    <div class="c-shop-text">
+                                        <div class="c-shop-name">{{ $shop->shop_name }}</div>
+                                        <div class="c-shop-category">{{ $shop->shop_category_name }}</div>
+                                        @if ($shop->shop_score)
+                                            <div class="c-shop-review">
+                                                <div class="c-shop-review_star_bg">
+                                                    <?php
+                                                        $val = 0;
+                                                         if ( $shop->shop_score < 0.5 ) {
+                                                             $val = 0;
+                                                         } elseif ($shop->shop_score <= 1) {
+                                                             $val = 1;
+                                                         } elseif ($shop->shop_score < 1.5) {
+                                                             $val = 2;
+                                                         } elseif ($shop->shop_score <= 2) {
+                                                             $val = 3;
+                                                         } elseif ($shop->shop_score < 2.5) {
+                                                             $val = 4;
+                                                         } elseif ($shop->shop_score <= 3) {
+                                                             $val = 5;
+                                                         } elseif ($shop->shop_score < 3.5) {
+                                                             $val = 6;
+                                                         } elseif ($shop->shop_score <= 4) {
+                                                             $val = 7;
+                                                         } elseif ($shop->shop_score < 4.5) {
+                                                             $val = 8;
+                                                         } elseif ($shop->shop_score < 5) {
+                                                             $val = 9;
+                                                         } elseif ($shop->shop_score === 5) {
+                                                             $val = 10;
+                                                         }
+                                                    ?>
+                                                    <div class="c-shop-review_star c-shop-review_star__val{{$val}}"></div>
+                                                </div>
+                                                <div class="c-shop-review_value">{{ $shop->shop_score }}</div>
+                                            </div>
+                                        @endif
+                                        <div class="c-shop-enable">
+{{--                                            @if ( $shop->shop_url_uber_eats || $shop->shop_url_demaekan || $shop->shop_url_d_delivery || $shop->shop_url_d_delivery  )--}}
+                                            <ul class="c-shop-enable_list">
+{{--                                                @if ( $shop->shop_url_uber_eats )--}}
+                                                <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__uber-eats" href="{{ $shop->shop_url_uber_eats }}">Uber <span>Eats</span></a></li>
+{{--                                                @endif--}}
+{{--                                                @if ( $shop->shop_url_d_delivery )--}}
+                                                <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__line-delima" href="{{ $shop->shop_url_d_delivery }}">LINEデリマ</a></li>
+{{--                                                @endif--}}
+{{--                                                @if ( $shop->shop_url_demaekan )--}}
+                                                <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__demaekan" href="{{ $shop->shop_url_demaekan }}">出前館</a></li>
+{{--                                                @endif--}}
+                                            </ul>
+{{--                                            @endif--}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+                {{ $shops->appends(['lat' => $lat, 'lng' => $lng])->links('pagination::default') }}
+            </div>
+        </main>
+    </div>
+@endsection
