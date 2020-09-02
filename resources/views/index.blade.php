@@ -44,10 +44,8 @@
                 <div class="c-services">
                     <h2 class="c-services-heading">現在対応している宅配サービス</h2>
                     <ul class="c-services-list">
-                        <li class="c-services-item">出前館</li>
                         <li class="c-services-item">楽天デリバリー</li>
                         <li class="c-services-item">dデリバリー</li>
-                        <li class="c-services-item">Uber Eats</li>
                     </ul>
                 </div>
             </div>
