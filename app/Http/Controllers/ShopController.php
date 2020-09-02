@@ -18,7 +18,8 @@ class ShopController extends Controller
     {
 
         // 距離の算出ロジック
-        $distance = '6371 * acos( -- kmの場合は6371、mileの場合は3959
+        // kmの場合は6371、mileの場合は3959
+        $distance = '6371 * acos(
               cos(radians(?))
               * cos(radians(shop_address_lat))
               * cos(radians(shop_address_lng) - radians(?))
