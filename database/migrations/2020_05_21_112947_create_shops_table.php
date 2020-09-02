@@ -33,7 +33,7 @@ class CreateShopsTable extends Migration
             $table->string('shop_clowl', 1)->comment('店舗閲覧フラグ')->default(0);
             $table->string('shop_fetched', 1)->comment('店舗情報取得フラグ')->nullable()->default(Null);
             $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->useCurrent()->nullable()->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));;
+            $table->timestamp('updated_at')->useCurrent()->nullable();;
             $table->softDeletes();
         });
 
