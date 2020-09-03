@@ -332,11 +332,8 @@ body {
     //position: absolute;
     //bottom: 5px;
     //right: 15px;
-    margin-top: 17px;
+    margin-top: 10px;
     //width: calc(100% - 130px - 17px - 15px);
-    @include mq() {
-      margin-top: 28px;
-    }
     &_list {
       text-align: right;
       letter-spacing: -.4em;
@@ -345,10 +342,19 @@ body {
       display: inline-block;
       text-align: center;
       font-size: 12px;
-      margin-left: 7px;
+      margin-left: 3px;
       margin-bottom: 5px;
       letter-spacing: 0;
       white-space: nowrap;
+      &:first-child {
+          margin-left: 0;
+      }
+        @include mq(small) {
+            margin-left: 7px;
+            &:first-child {
+                margin-left: 7px;
+            }
+        }
     }
     &_link {
       display: inline-block;
