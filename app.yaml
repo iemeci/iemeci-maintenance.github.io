@@ -1,0 +1,21 @@
+runtime: php72
+
+handlers:
+  # Serve a directory as a static resource.
+  - url: /css
+    static_dir: public/css
+  - url: /img
+    static_dir: public/img
+  - url: /js
+    static_dir: public/js
+
+env_variables:
+  ## Put production environment variables here.
+  APP_KEY: base64:EEEVx53H8H7SII+7H1vC13Fgo81aQmIdN9auxzVJ1uI=
+  APP_STORAGE: /tmp
+  APP_ENV: production
+  VIEW_COMPILED_PATH: /tmp
+  SESSION_DRIVER: cookie
+  LOG_CHANNEL: stackdriver
+  APP_DEBUG: false
+
