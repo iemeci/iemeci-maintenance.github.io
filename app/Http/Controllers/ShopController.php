@@ -65,8 +65,8 @@ class ShopController extends Controller
                 $distance ."
                  as distance
                 ", [$lat, $lng, $lat])
-            ->whereRaw('shop_url_d_delivery is not null  or shop_url_rakuten_delivery is not null and ' .
-                $distance . '< 4',  [$lat, $lng, $lat])
+            ->whereRaw('(shop_url_d_delivery is not null  or shop_url_rakuten_delivery is not null) and ' .
+                $distance . '< 1.85',  [$lat, $lng, $lat])
             ->orderByRaw('shop_score desc ,' . $distance, [$lat, $lng, $lat])
             ->paginate(10);
 //        dd(compact('shops'));
