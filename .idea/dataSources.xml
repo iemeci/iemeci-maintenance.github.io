@@ -19,5 +19,11 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://us-cdbr-east-05.cleardb.net:3306/heroku_e091b0bcca18925</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="heroku_prd" uuid="686ccdb0-6f12-41d8-bf5d-1a84cf4544dd">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://us-cdbr-east-05.cleardb.net:3306/heroku_3e0e47516ad88b6</jdbc-url>
+    </data-source>
   </component>
 </project>
