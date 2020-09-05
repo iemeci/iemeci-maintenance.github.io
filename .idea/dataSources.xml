@@ -23,7 +23,7 @@
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://us-cdbr-east-02.cleardb.com:3306/heroku_467e18e56ea3d91</jdbc-url>
+      <jdbc-url>jdbc:mysql://us-cdbr-east-02.cleardb.com:3306/heroku_0f8d9c02274d35b</jdbc-url>
     </data-source>
   </component>
 </project>
