@@ -34,7 +34,7 @@
                     </ul>
                 </div>
                 <div class="c-hero">
-                    <h1 class="c-hero-heading">食べログの点数で探せる<br>宅配サービス一括検索サイト</h1>
+                    <h1 class="c-hero-heading">食べログの点数で探せる、<br>宅配サービス一括検索サイト</h1>
                     <div class="c-hero-content">
                         <p class="c-hero-paragraph">お店に行かなくても美味しいご飯が食べたい！</p>
                         <p class="c-hero-paragraph">だけど、宅配サービスですぐに目につくのはチェーン店ばかり。しかも、宅配サービスごとに提供しているお店が違うので、美味しいお店を見落としがち。<br></p>
