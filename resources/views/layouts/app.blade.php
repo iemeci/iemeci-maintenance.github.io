@@ -42,7 +42,7 @@
     <footer class="l-footer">
         <div class="l-footer_inner">
             <ul class="c-footer_menu-list">
-                <li class="c-footer_menu-item"><a class="c-footer_menu-link" href="{{route('info.privacy_policy')}}">プライバシーポリシー</a></li>
+                <li class="c-footer_menu-item"><a class="c-footer_menu-link" href="{{ route('info.privacy_policy') }}">プライバシーポリシー</a></li>
                 <li class="c-footer_menu-item"><a class="c-footer_menu-link" href="https://forms.gle/P5eHjissBb3iEeTX6" target="_blank">お問い合わせ</a></li>
             </ul>
         </div>
