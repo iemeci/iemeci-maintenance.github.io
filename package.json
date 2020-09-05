@@ -11,7 +11,7 @@
         "postinstall": "npm run production"
     },
     "engines": {
-        "node": "12.x"
+        "node": "12.10.0"
     },
     "devDependencies": {
         "axios": "^0.19",
