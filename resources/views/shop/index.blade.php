@@ -8,6 +8,7 @@
                     <div class="c-location-area"><span class="c-location-post_number">〒 {{ $post_address[1] }}</span><span class="c-location-address">{{ $post_address[2] }}</span></div>
                     <div class="c-location-count"><span class="c-location-count_num">{{ $shops->total() }}</span><span class="c-location-count_unit">件</span></div>
                 </div>
+                <div class="c-location-suggestion"><a href="https://forms.gle/vEtrG3QMQ1LwXFnz6" target="_blank">リンクの修正を提案</a></div>
                 <div class="c-shop">
                     <ul class="c-shop-list">
                         @foreach($shops as $shop)

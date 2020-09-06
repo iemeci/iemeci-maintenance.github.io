@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{{ config('app.name') }}{{ config('app.name_description') }}</title>
+    <meta name="format-detection" content="telephone=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @if(app('env') == 'production' || app('env') == 'staging')
         <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">

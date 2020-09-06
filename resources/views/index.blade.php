@@ -17,6 +17,7 @@
                             </div>
                         </div>
                     </div>
+                    <div class="c-catch-notice">ただいま東京のみ対応。順次エリア拡大します。</div>
                 </div>
                 <div class="c-sns">
                     <ul class="c-sns-list">
