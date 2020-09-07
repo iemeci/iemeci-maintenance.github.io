@@ -387,6 +387,7 @@ body {
       font-weight: bold;
       color: #ffffff;
       text-decoration: none;
+
       &__uber-eats {
         background-color: #000;
         color: #ffffff;
@@ -404,6 +405,29 @@ body {
         color: #f3202e;
         padding-top: 2px;
         padding-bottom: 1px;
+      }
+      &__d-delivery {
+        box-sizing: border-box;
+        border: 1px solid #D00F30;
+        color: #D00F30;
+      }
+      &__r-delivery {
+        box-sizing: border-box;
+        border: 1px solid #F59600;
+        color: #F59600;
+        span {
+          position: relative;
+          &::before {
+            content: "";
+            background: url("../img/r_delivery_bg.png") no-repeat;
+            background-size: 13px auto;
+            position: absolute;
+            top: 15px;
+            left: -0.5px;
+            width: 13px;
+            height: 3px;
+          }
+        }
       }
     }
   }

@@ -60,9 +60,9 @@
                                                     <ul class="c-shop-enable_list">
                                                         @if ( $shop->shop_url_d_delivery )
                                                             <li class="c-shop-enable_item"><a
-                                                                    class="c-shop-enable_link c-shop-enable_link__line-delima"
+                                                                    class="c-shop-enable_link c-shop-enable_link__d-delivery"
                                                                     href="https://px.a8.net/svt/ejp?a8mat=3BG3ZA+XXR16+3CLO+BW8O2&a8ejpredirect={{ urlencode('https://delivery.dmkt-sp.jp' . $shop->shop_url_d_delivery) }}"
-                                                                    rel="nofollow">dデリバリー</a>
+                                                                    rel="nofollow">ｄデリバリー</a>
                                                                 <img border="0" width="1" height="1"
                                                                      src="https://www11.a8.net/0.gif?a8mat=3BG3ZA+XXR16+3CLO+BW8O2"
                                                                      alt="">
@@ -70,8 +70,8 @@
                                                         @endif
                                                         @if ( $shop->shop_url_rakuten_delivery )
                                                             <li class="c-shop-enable_item"><a
-                                                                    class="c-shop-enable_link c-shop-enable_link__uber-eats"
-                                                                    href="https://px.a8.net/svt/ejp?a8mat=3BG3ZA+XXR16+3CLO+BW8O2&a8ejpredirect={{ urlencode('https://delivery.rakuten.co.jp' . $shop->shop_url_rakuten_delivery) }}">楽天デリバリー</a>
+                                                                    class="c-shop-enable_link c-shop-enable_link__r-delivery"
+                                                                    href="https://px.a8.net/svt/ejp?a8mat=3BG3ZA+XXR16+3CLO+BW8O2&a8ejpredirect={{ urlencode('https://delivery.rakuten.co.jp' . $shop->shop_url_rakuten_delivery) }}"><span>Ｒ</span>デリバリー</a>
                                                                 <img border="0" width="1" height="1"
                                                                      src="https://www16.a8.net/0.gif?a8mat=2NQTU1+2MNYQI+2HOM+BW8O1"
                                                                      alt="">
