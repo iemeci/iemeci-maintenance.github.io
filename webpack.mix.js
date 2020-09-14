@@ -76,7 +76,7 @@ mix.config.fileLoaderDirs.images = 'img';
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/style.scss', 'public/css')
-    .imagemin('img/**.*',
+    .imagemin('img/**/*',
         {
         context: 'resources',
         },

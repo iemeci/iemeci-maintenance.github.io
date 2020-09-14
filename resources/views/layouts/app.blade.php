@@ -20,6 +20,16 @@
 {{--    <meta property="og:image" content="表示したい画像のURL（絶対パス）">--}}
     <meta property="og:site_name" content="{{ config('app.name') }}{{ config('app.name_description') }}。">
     <meta property="og:description" content="お店に行かなくても美味しいご飯が食べたい！だけど、宅配サービスですぐに目につくのはチェーン店ばかり。しかも、宅配サービスごとに提供している...">
+    <link rel="icon alternate" href="/favicon.ico" />
+    @if(app('env') == 'production' || app('env') == 'staging')
+    <link rel="icon" href="{{ secure_asset('/img/app-icon/favicon.svg') }}" type="image/svg+xml">
+    <link rel="icon alternate" href="{{ secure_asset('/img/app-icon/favicon.png') }}" type="image/png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ secure_asset('/img/app-icon/favicon.png') }}">
+    @else
+    <link rel="icon" href="{{ asset('/img/app-icon/favicon.svg') }}" type="image/svg+xml">
+    <link rel="icon alternate" href="{{ asset('/img/app-icon/favicon.png') }}" type="image/png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('/img/app-icon/favicon.png') }}">
+    @endif
 </head>
 <body>
 <div class="l-page">
