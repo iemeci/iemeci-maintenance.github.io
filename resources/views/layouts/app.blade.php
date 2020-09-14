@@ -17,7 +17,7 @@
     <meta property="og:title" content="{{ config('app.name') }}{{ config('app.name_description') }}。">
     <meta property="og:type" content="website">
 {{--    <meta property="og:url" content="表示したいページのURL（絶対パス）">--}}
-    <meta property="og:image" content="{{ secure_asset('/img/app-icon/favicon.png')  }}">
+    <meta property="og:image" content="{{ secure_asset('/img/app-icon/ogp-image.png')  }}">
     <meta property="og:site_name" content="{{ config('app.name') }}{{ config('app.name_description') }}。">
     <meta property="og:description" content="お店に行かなくても美味しいご飯が食べたい！だけど、宅配サービスですぐに目につくのはチェーン店ばかり。しかも、宅配サービスごとに提供している...">
     <link rel="icon alternate" href="/favicon.ico" />
