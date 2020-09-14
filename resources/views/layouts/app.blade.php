@@ -30,7 +30,7 @@
     <link rel="icon alternate" href="{{ asset('/img/app-icon/favicon.png') }}" type="image/png">
     <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('/img/app-icon/favicon.png') }}">
     @endif
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="iemeci">
     <meta name="twitter:title" content="{{ config('app.name') }}">
     <meta name="twitter:description" content="お店に行かなくても美味しいご飯が食べたい！だけど、宅配サービスですぐに目につくのはチェーン店ばかり。しかも、宅配サービスごとに提供している...">
