@@ -34,7 +34,7 @@
     <meta name="twitter:site" content="iemeci">
     <meta name="twitter:title" content="{{ config('app.name') }}">
     <meta name="twitter:description" content="お店に行かなくても美味しいご飯が食べたい！だけど、宅配サービスですぐに目につくのはチェーン店ばかり。しかも、宅配サービスごとに提供している...">
-    <meta name="twitter:image" content="{{ secure_asset('/img/app-icon/favicon.png')  }}">
+    <meta name="twitter:image" content="{{ secure_asset('/img/app-icon/ogp-image.png')  }}">
 </head>
 <body>
 <div class="l-page">
