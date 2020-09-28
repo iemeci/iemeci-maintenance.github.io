@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('no_index')
+    @if(!count($shops))
+        <meta name=”robots” content=”noindex,nofollow”>
+    @endif
+@endsection
+
 @section('content')
     <div class="l-contents_inner">
         <main class="l-main">
