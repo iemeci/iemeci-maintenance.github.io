@@ -6,6 +6,7 @@
     @endif
 @endsection
 
+
 @section('content')
     <div class="l-contents_inner">
         <main class="l-main">
