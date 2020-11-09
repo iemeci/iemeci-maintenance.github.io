@@ -6,6 +6,7 @@
     @endif
 @endsection
 
+
 @section('content')
     <div class="l-contents_inner">
         <main class="l-main">
@@ -62,8 +63,14 @@
                                                 </div>
                                             @endif
                                             <div class="c-shop-enable">
-                                                @if ( $shop->shop_url_d_delivery || $shop->shop_url_rakuten_delivery )
+                                                @if ( $shop->shop_url_d_delivery || $shop->shop_url_rakuten_delivery || $shop->shop_url_uber_eats || $shop->shop_url_demaekan )
                                                     <ul class="c-shop-enable_list">
+                                                        @if ( $shop->shop_url_uber_eats )
+                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__uber-eats" href="{{ 'https://www.ubereats.com' . $shop->shop_url_uber_eats }}" rel="nofollow">Uber <span>Eats</span></a></li>
+                                                        @endif
+                                                        @if ( $shop->shop_url_demaekan )
+                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__demaekan" href="{{ urlencode('https://demae-can.com' . $shop->shop_url_demaekan) }}" rel="nofollow">出前館</a></li>
+                                                        @endif
                                                         @if ( $shop->shop_url_d_delivery )
                                                             <li class="c-shop-enable_item"><a
                                                                     class="c-shop-enable_link c-shop-enable_link__d-delivery"
