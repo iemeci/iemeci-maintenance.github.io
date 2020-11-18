@@ -25,11 +25,11 @@
     @if(app('env') == 'production' || app('env') == 'staging')
     <link rel="icon" href="{{ secure_asset('/img/app-icon/favicon.svg') }}" type="image/svg+xml">
     <link rel="icon alternate" href="{{ secure_asset('/img/app-icon/favicon.png') }}" type="image/png">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ secure_asset('/img/app-icon/favicon.png') }}">
+    <link rel="apple-touch-icon" sizes="200x200" href="{{ secure_asset('/img/app-icon/touch_icon.png') }}">
     @else
     <link rel="icon" href="{{ asset('/img/app-icon/favicon.svg') }}" type="image/svg+xml">
     <link rel="icon alternate" href="{{ asset('/img/app-icon/favicon.png') }}" type="image/png">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('/img/app-icon/favicon.png') }}">
+    <link rel="apple-touch-icon" sizes="200x200" href="{{ asset('/img/app-icon/touch_icon.png') }}">
     @endif
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="iemeci">

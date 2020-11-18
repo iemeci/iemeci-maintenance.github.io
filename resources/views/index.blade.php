@@ -17,7 +17,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="c-catch-notice">ただいま東京のみ対応。順次エリア拡大します。</div>
+                    <div class="c-catch-notice">ただいま関東のみ対応。順次エリア拡大します。</div>
                 </div>
                 <div class="c-sns">
                     <ul class="c-sns-list">
@@ -47,6 +47,7 @@
                     <ul class="c-services-list">
                         <li class="c-services-item">楽天デリバリー</li>
                         <li class="c-services-item">dデリバリー</li>
+                        <li class="c-services-item">Uber Eats</li>
                     </ul>
                 </div>
             </div>

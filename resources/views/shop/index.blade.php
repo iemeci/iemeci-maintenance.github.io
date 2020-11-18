@@ -74,7 +74,7 @@
                                                         @if ( $shop->shop_url_d_delivery )
                                                             <li class="c-shop-enable_item"><a
                                                                     class="c-shop-enable_link c-shop-enable_link__d-delivery"
-                                                                    href="https://px.a8.net/svt/ejp?a8mat=3BG3ZA+XXR16+3CLO+BW8O2&a8ejpredirect={{ urlencode('https://delivery.dmkt-sp.jp' . $shop->shop_url_d_delivery) }}"
+                                                                    href="https://px.a8.net/svt/ejp?a8mat=3BG3ZA+XXR16+3CLO+BW8O2&a8ejpredirect={{ urlencode($shop->shop_url_d_delivery) }}"
                                                                     rel="nofollow">ｄデリバリー</a>
                                                                 <img border="0" width="1" height="1"
                                                                      src="https://www11.a8.net/0.gif?a8mat=3BG3ZA+XXR16+3CLO+BW8O2"
