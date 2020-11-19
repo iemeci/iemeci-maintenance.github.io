@@ -30,6 +30,7 @@ class ShopController extends Controller
         // 現在地
         $lat = (float) $request->input('lat');
         $lng = (float) $request->input('lng');
+        $range = $request->input('range') ? (float) $request->input('range') : '1.85';
 
         if($lat and $lng) {
             // 現在地
@@ -66,7 +67,7 @@ class ShopController extends Controller
                  as distance
                 ", [$lat, $lng, $lat])
             ->whereRaw('(shop_url_d_delivery is not null  or shop_url_rakuten_delivery is not null or shop_url_uber_eats is not null or shop_url_demaekan is not null) and ' .
-                $distance . '< 1.85',  [$lat, $lng, $lat])
+                $distance . '< ' . $range,  [$lat, $lng, $lat])
             ->orderByRaw('shop_score desc ,' . $distance, [$lat, $lng, $lat])
             ->paginate(10);
 //        dd(compact('shops'));
