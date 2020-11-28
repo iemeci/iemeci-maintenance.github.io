@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Shop;
+use App\Models\m_Shop;
 use Illuminate\Support\Facades\DB;
 use function GuzzleHttp\json_decode;
 
