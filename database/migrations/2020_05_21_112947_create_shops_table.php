@@ -13,7 +13,7 @@ class CreateShopsTable extends Migration
      */
     public function up()
     {
-        Schema::create('shops', function (Blueprint $table) {
+        Schema::create('m_shops', function (Blueprint $table) {
             $table->string('shop_tabelog_id', 8)->comment('食べログID')->primary();
             $table->string('shop_postcode', 7)->comment('店舗郵便番号')->nullable();
             $table->string('shop_pref', 5)->comment('店舗都道府県')->nullable();
@@ -30,34 +30,59 @@ class CreateShopsTable extends Migration
             $table->text('shop_address')->comment('店舗住所')->nullable();
             $table->double('shop_address_lat', 10, 7)->comment('店舗緯度')->index()->nullable();
             $table->double('shop_address_lng', 10, 7)->comment('店舗軽度')->index()->nullable();
-            $table->string('shop_clowl', 1)->comment('店舗閲覧フラグ')->default(0);
-            $table->string('shop_fetched', 1)->comment('店舗情報取得フラグ')->nullable()->default(Null);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
             $table->softDeletes();
         });
 
-        Schema::create('areas', function (Blueprint $table) {
-            $table->increments('area_id')->comment('地域ID');
-            $table->string('area_name', 30)->comment('地域名');
-            $table->string('area_noun', 1)->comment('地域名50音');
-            $table->longText('area_url')->comment('地域URL');
+        Schema::create('m_areas', function (Blueprint $table) {
+            $table->string('area_id', 2)->comment('エリアID')->primary();
+            $table->string('area_name', 30)->comment('エリア名');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
             $table->softDeletes();
         });
 
-        Schema::create('shop_lists', function (Blueprint $table) {
-            $table->increments('shop_list_id')->comment('ショップリストID');
-            $table->string('shop_list_area_id', 7)->comment('ショップリスト地域ID');
-            $table->string('shop_list_pref_id', 5)->comment('ショップリスト都道府県ID');
-            $table->string('shop_list_name', 10)->comment('ショップリスト名');
-            $table->longText('shop_list_href')->comment('ショップリストURL');
-            $table->integer('shop_list_num', false, true)->comment('ショップリストレコード数');
+        Schema::create('m_prefs', function (Blueprint $table) {
+            $table->string('pref_id', 2)->comment('都道府県ID')->primary();
+            $table->string('pref_name', 4)->comment('都道府県名')->nullable();
+            $table->string('pref_area_id', 2)->comment('所属エリアID')->index()->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
             $table->softDeletes();
         });
+
+
+        Schema::create('m_cities', function(Blueprint $table) {
+            $table->string('city_id', 5)->comment('市区町村ID')->primary();
+            $table->string('city_name', 20)->comment('市区町村名')->nullable();
+            $table->string('city_kana', 50)->comment('市区町村名カナ')->nullable()->index();
+            $table->string('city_pref_id', 2)->comment('所属都道府県ID')->nullable()->index();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable();
+            $table->softDeletes();
+        });
+
+        Schema::create('m_towns', function(Blueprint $table) {
+            $table->string('town_id', 9)->comment('大字ID')->primary();
+            $table->string('town_name', 20)->comment('大字名')->nullable();
+            $table->string('town_city_id', 5)->comment('所属市区町村ID')->nullable()->index();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable();
+            $table->softDeletes();
+        });
+
+        Schema::create('m_streets', function(Blueprint $table) {
+            $table->string('street_id', 12)->comment('丁目ID')->primary();
+            $table->string('street_name', 20)->comment('丁目名')->nullable();
+            $table->string('street_town_id', 9)->comment('所属大字ID')->nullable()->index();
+            $table->double('street_lat', 10, 7)->comment('緯度')->nullable()->index();
+            $table->double('street_lng', 10, 7)->comment('経度')->nullable()->index();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable();
+            $table->softDeletes();
+        });
+
     }
 
     /**
