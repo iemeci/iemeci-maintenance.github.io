@@ -15,10 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth.very_basic'], function()
 {
-    Route::get('/', function () {
-        return view('index');
-    });
-
+    Route::get('/', function () {return view('index');})->name('home');
+    Route::get('/pref/{pref_id}', 'm_CityController@index')->name('m_pref.index');
+    Route::get('/city/{city_id}', 'm_TownController@index')->name('m_city.index');
+    Route::get('/town/{town_id}', 'm_StreetController@index')->name('m_town.index');
+    Route::get('/street/{street_id}', 'shopController@index')->name('m_street.index');
     Route::get('/search', 'ShopController@index')->name('shop.index');
 
     Route::get('/info/privacy_policy', function () {

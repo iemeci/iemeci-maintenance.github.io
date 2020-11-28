@@ -1,9 +1,31 @@
 @extends('layouts.app')
 
+@section('title')
+  <title>{{ config('app.name') }}{{ config('app.name_description') }}</title>
+@endsection
+
 @section('no_index')
     @if(!count($shops))
         <meta name=”robots” content=”noindex,nofollow”>
     @endif
+@endsection
+
+@section('meta')
+  @if(!isset($street_id))
+    <link rel="canonical" href="{{ route('m_street.index', ['street_id' => $street->street_id]) }}">
+  @endif
+  <meta name="description" content="{{ $street->city_name . $street->town_name }}{{ $street->town_name === $street->street_name ? '' : $street->street_name }}の出前・デリバリー・宅配を一括検索するならいえメシへ。主要宅配サービスの美味しい飲食店を簡単に比較・検索できます。宅配サイトで直接予約できるため手数料無料です。取扱サービスは、Uber Eats（ウーバーイーツ）,ｄデリバリー,楽天デリバリー。">
+  <meta property="og:title" content="{{ config('app.name') }}{{ config('app.name_description') }}。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ request()->fullUrl() }}">
+  <meta property="og:image" content="{{ secure_asset('/img/app-icon/ogp-image.png')  }}">
+  <meta property="og:site_name" content="{{ config('app.name') }}{{ config('app.name_description') }}。">
+  <meta property="og:description" content="お店に行かなくても美味しいご飯が食べたい！だけど、宅配サービスですぐに目につくのはチェーン店ばかり。しかも、宅配サービスごとに提供している...">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="iemeci">
+  <meta name="twitter:title" content="{{ config('app.name') }}">
+  <meta name="twitter:description" content="お店に行かなくても美味しいご飯が食べたい！だけど、宅配サービスですぐに目につくのはチェーン店ばかり。しかも、宅配サービスごとに提供している...">
+  <meta name="twitter:image" content="{{ secure_asset('/img/app-icon/ogp-image.png')  }}">
 @endsection
 
 
@@ -12,7 +34,29 @@
         <main class="l-main">
             <div class="l-content">
                 <div class="c-location-header">
-                    <div class="c-location-area"><span class="c-location-post_number">〒 {{ $post_address[1] }}</span><span class="c-location-address">{{ $post_address[2] }}</span></div>
+                    <div class="c-location-area">
+                      <div class="c-topic_path">
+                        <ul class="c-topic_path-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                          <li class="c-topic_path-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <a class="c-topic_path-link" itemprop="item" href="{{ route('home') }}"><span itemprop="name">トップ</span></a>
+                            <meta itemprop="position" content="1">
+                          </li>
+                          <li class="c-topic_path-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <a class="c-topic_path-link" itemprop="item" href="{{ route('m_pref.index', ["pref_id" => $street->pref_id]) }}"><span itemprop="name">{{ $street->pref_name }}</span></a>
+                            <meta itemprop="position" content="2">
+                          </li>
+                          <li class="c-topic_path-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <a class="c-topic_path-link" itemprop="item" href="{{ route('m_city.index', ["city_id" => $street->city_id]) }}"><span itemprop="name">{{ $street->city_name }}</span></a>
+                            <meta itemprop="position" content="3">
+                          </li>
+                          <li class="c-topic_path-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <a class="c-topic_path-link" itemprop="item" href="{{ route('m_town.index', ["town_id" => $street->town_id]) }}"><span itemprop="name">{{ $street->town_name }}</span></a>
+                            <meta itemprop="position" content="4">
+                          </li>
+                          <li class="c-topic_path-item">{{ $street->street_name }}</li>
+                        </ul>
+                      </div>
+                    </div>
                     <div class="c-location-count"><span class="c-location-count_num">{{ $shops->total() }}</span><span class="c-location-count_unit">件</span></div>
                 </div>
                 @if($shops->total())
@@ -99,7 +143,11 @@
                             @endforeach
                         </ul>
                     </div>
-                    {{ $shops->appends(['lat' => $lat, 'lng' => $lng])->links('pagination::default') }}
+                    @if(isset($street_id))
+                        {{ $shops->links('pagination::default') }}
+                    @else
+                        {{ $shops->appends(['lat' => $lat, 'lng' => $lng])->links('pagination::default') }}
+                    @endif
                 </div>
             @else
                 <div class="c-shop-empty">
