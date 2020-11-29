@@ -13,7 +13,7 @@ class SitemapController extends Controller
   // sitemap-indexを出力する
   public function index()
   {
-    $sitemap = App::make("sitemap");
+    $sitemap = \App::make("sitemap");
     // キャッシュの設定。単位は分
     $sitemap->setCache('laravel.sitemap', 1);
     if (!$sitemap->isCached()) {
@@ -55,6 +55,20 @@ class SitemapController extends Controller
         ;
       // dd(compact(['towns']));
 
+      $sitemap->add(
+        route('home'),
+        Carbon::now(),
+        1.0,
+        'weekly'
+      );
+      $sitemap->add(
+        route('info.privacy_policy'),
+        Carbon::now(),
+        1.0,
+        'monthly'
+      );
+
+
       foreach($prefs->get() as $pref) {
         $sitemap->add(
           route('m_pref.index', ["pref_id" => $pref->pref_id]),
@@ -81,15 +95,6 @@ class SitemapController extends Controller
           'yearly'
         );
       }
-
-//      // ページ２のURLを追加
-//      $sitemap->add(
-//        route('your-route-name2'),
-//        Carbon::now(),
-//        1.0,
-//        'weekly'
-//      );
-//      // 必要に応じて上記をコピペする
     }
     // XML形式で出力
     return $sitemap->render('xml');
@@ -112,11 +117,9 @@ class SitemapController extends Controller
         ->join('m_cities', 'm_prefs.pref_id', '=', 'm_cities.city_pref_id')
         ->join('m_towns', 'm_cities.city_id', '=', 'm_towns.town_city_id')
         ->join('m_streets', 'm_towns.town_id', '=', 'm_streets.street_town_id')
-//        ->limit(50000)
         ->setBindings(['03'])
         ->get();
 
-//      dd(compact(['streets']));
 
       foreach($streets as $street) {
         $sitemap->add(
@@ -128,7 +131,6 @@ class SitemapController extends Controller
       }
     }
     // XML形式で出力
-    // var_dump($sitemap);
     return $sitemap->render('xml');
   }
 }
