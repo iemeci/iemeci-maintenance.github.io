@@ -15,7 +15,7 @@ class SitemapController extends Controller
   {
     $sitemap = \App::make("sitemap");
     // キャッシュの設定。単位は分
-    $sitemap->setCache('laravel.sitemap', 1);
+    $sitemap->setCache('laravel.sitemap', 1440);
     if (!$sitemap->isCached()) {
       // sitemapのURLを追加
       $sitemap->addSitemap(route('sitemap-area_towns'));
@@ -32,7 +32,7 @@ class SitemapController extends Controller
   {
     $sitemap = \App::make("sitemap");
     // キャッシュの設定。単位は分
-    $sitemap->setCache('laravel.sitemap-basics', 1);
+    $sitemap->setCache('laravel.sitemap-basics', 1440);
     if (!$sitemap->isCached()) {
       $select_pref = ['08', '09', '10', '11', '12', '13', '14'];
       // ページ１のURLを追加
@@ -103,7 +103,7 @@ class SitemapController extends Controller
   public function streets_kanto() {
     $sitemap = \App::make("sitemap");
     // キャッシュの設定。単位は分
-    $sitemap->setCache('laravel.sitemap-index', 1);
+    $sitemap->setCache('laravel.sitemap-index', 1440);
     if (!$sitemap->isCached()) {
       // sitemapのURLを追加
       $areas = DB::table('m_areas')
