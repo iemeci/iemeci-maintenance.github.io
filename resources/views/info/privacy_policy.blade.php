@@ -1,5 +1,19 @@
 @extends('layouts.app')
 
+@section('meta')
+  <meta property="og:title" content="{{ config('app.name') }}{{ config('app.name_description') }}。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ route('home') }}">
+  <meta property="og:image" content="{{ secure_asset('/img/app-icon/ogp-image.png')  }}">
+  <meta property="og:site_name" content="{{ config('app.name') }}{{ config('app.name_description') }}。">
+  <meta property="og:description" content="お店に行かなくても美味しいご飯が食べたい！だけど、宅配サービスですぐに目につくのはチェーン店ばかり。しかも、宅配サービスごとに提供している...">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="iemeci">
+  <meta name="twitter:title" content="{{ config('app.name') }}">
+  <meta name="twitter:description" content="お店に行かなくても美味しいご飯が食べたい！だけど、宅配サービスですぐに目につくのはチェーン店ばかり。しかも、宅配サービスごとに提供している...">
+  <meta name="twitter:image" content="{{ secure_asset('/img/app-icon/ogp-image.png')  }}">
+@endsection
+
 @section('content')
     <div class="c-policy">
         <div class="c-policy">

@@ -19,8 +19,10 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
+        "laravelium/sitemap": "7.x",
         "nunomaduro/collision": "^4.2",
-        "olssonm/l5-very-basic-auth": "^6.3"
+        "olssonm/l5-very-basic-auth": "^6.3",
+        "renatomarinho/laravel-page-speed": "^1.9"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.9.1",

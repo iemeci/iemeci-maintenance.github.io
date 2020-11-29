@@ -1,55 +1,109 @@
 @extends('layouts.app')
 
+@section('title')
+  <title>{{ config('app.name') }}{{ config('app.name_description') }}</title>
+@endsection
+
+@section('meta')
+  <meta property="og:title" content="{{ config('app.name') }}{{ config('app.name_description') }}。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ route('home') }}">
+  <meta property="og:image" content="{{ secure_asset('/img/app-icon/ogp-image.png')  }}">
+  <meta property="og:site_name" content="{{ config('app.name') }}{{ config('app.name_description') }}。">
+  <meta property="og:description" content="お店に行かなくても美味しいご飯が食べたい！だけど、宅配サービスですぐに目につくのはチェーン店ばかり。しかも、宅配サービスごとに提供している...">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="iemeci">
+  <meta name="twitter:title" content="{{ config('app.name') }}">
+  <meta name="twitter:description" content="お店に行かなくても美味しいご飯が食べたい！だけど、宅配サービスですぐに目につくのはチェーン店ばかり。しかも、宅配サービスごとに提供している...">
+  <meta name="twitter:image" content="{{ secure_asset('/img/app-icon/ogp-image.png')  }}">
+@endsection
+
 @section('content')
-    <div class="l-contents_inner">
-        <main class="l-main">
-            <div class="l-content">
-                <div class="c-catch">
-                    <div class="c-catch-catch">
-                        <div class="c-catch-visual"></div>
-                        <div class="c-catch-button-wrap">
-                            <div class="c-catch-button-area">
-                                <form action="{{ route('shop.index') }}" name="submit_location">
-                                    <input type="hidden" name="lat" value="">
-                                    <input type="hidden" name="lng" value="">
-                                    <button class="c-catch-button js-submit-location"><i class="c-catch-button-icon"></i><span class="c-catch-button-label">配達可能なお店を探す</span></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="c-catch-notice">ただいま東京のみ対応。順次エリア拡大します。</div>
-                </div>
-                <div class="c-sns">
-                    <ul class="c-sns-list">
-                    @if(app('env') == 'production' || app('env') == 'staging')
-                        <li class="c-sns-item"><a href="https://social-plugins.line.me/lineit/share?url={{ config('app.url') }}/" target="blank"><img src="{{ secure_asset('img/btn_line.svg') }}" alt="LINE" width="40" height="40"></a></li>
-                        <li class="c-sns-item"><a href="https://www.facebook.com/sharer/sharer.php?u={{ config('app.url') }}/" target="blank"><img src="{{ secure_asset('img/btn_facebook.svg') }}" alt="Facebook" width="40" height="40"></a></li>
-                        <li class="c-sns-item"><a href="https://twitter.com/intent/tweet?url={{ config('app.url') }}/&text={{ config('app.name') . config('app.name_description') }}" target="blank"><img src="{{ secure_asset('img/btn_twitter.svg') }}" alt="Twitter" width="40" height="40"></a></li>
-                        <li class="c-sns-item"><a class="js-copy" href="javascript:void(0);" data-title="{{ config('app.name') . config('app.name_description') }}"><img src="{{ secure_asset('img/btn_link.svg') }}" alt="コピー" width="40" height="40"></a></li>
-                    @else
-                        <li class="c-sns-item"><a href="https://social-plugins.line.me/lineit/share?url={{ config('app.url') }}/" target="blank"><img src="{{ asset('img/btn_line.svg') }}" alt="LINE" width="40" height="40"></a></li>
-                        <li class="c-sns-item"><a href="https://www.facebook.com/sharer/sharer.php?u={{ config('app.url') }}/" target="blank"><img src="{{ asset('img/btn_facebook.svg') }}" alt="Facebook" width="40" height="40"></a></li>
-                        <li class="c-sns-item"><a href="https://twitter.com/intent/tweet?url={{ config('app.url') }}/&text={{ config('app.name') . config('app.name_description') }}" target="blank"><img src="{{ asset('img/btn_twitter.svg') }}" alt="Twitter" width="40" height="40"></a></li>
-                        <li class="c-sns-item"><a class="js-copy" href="javascript:void(0);" data-title="{{ config('app.name') . config('app.name_description') }}"><img src="{{ asset('img/btn_link.svg') }}" alt="コピー" width="40" height="40"></a></li>
-                    @endif
-                    </ul>
-                </div>
-                <div class="c-hero">
-                    <h1 class="c-hero-heading">食べログの点数で探せる、<br>宅配サービス一括検索サイト</h1>
-                    <div class="c-hero-content">
-                        <p class="c-hero-paragraph">お店に行かなくても美味しいご飯が食べたい！</p>
-                        <p class="c-hero-paragraph">だけど、宅配サービスですぐに目につくのはチェーン店ばかり。しかも、宅配サービスごとに提供しているお店が違うので、美味しいお店を見落としがち。<br></p>
-                        <p class="c-hero-paragraph">そこで、普段使い慣れた食べログの情報を参照しながら、宅配サービスを横断してお店を探せるサービスを開発しました。お家にいながら、ぜひ美味しいご飯を開拓してみてください。</p>
-                    </div>
-                </div>
-                <div class="c-services">
-                    <h2 class="c-services-heading">現在対応している宅配サービス</h2>
-                    <ul class="c-services-list">
-                        <li class="c-services-item">楽天デリバリー</li>
-                        <li class="c-services-item">dデリバリー</li>
-                    </ul>
-                </div>
+  <div class="l-contents_inner">
+    <main class="l-main">
+      <div class="l-content">
+        <div class="c-catch">
+          <div class="c-catch-catch">
+            <div class="c-catch-visual"></div>
+            <div class="c-catch-button-wrap">
+              <div class="c-catch-button-area">
+                <form action="{{ route('shop.index') }}" name="submit_location">
+                  <input type="hidden" name="lat" value="">
+                  <input type="hidden" name="lng" value="">
+                  <button class="c-catch-button js-submit-location"><i class="c-catch-button-icon"></i><span
+                      class="c-catch-button-label">配達可能なお店を探す</span></button>
+                </form>
+              </div>
             </div>
-        </main>
-    </div>
+          </div>
+          <div class="c-catch-notice">ただいま関東のみ対応。順次エリア拡大します。</div>
+        </div>
+        <div class="c-sns">
+          <ul class="c-sns-list">
+            @if(app('env') == 'production' || app('env') == 'staging')
+              <li class="c-sns-item"><a href="https://social-plugins.line.me/lineit/share?url={{ config('app.url') }}/" target="blank"><img src="{{ secure_asset('img/btn_line.svg') }}" alt="LINE" width="40" height="40"></a></li>
+              <li class="c-sns-item"><a href="https://www.facebook.com/sharer/sharer.php?u={{ config('app.url') }}/" target="blank"><img src="{{ secure_asset('img/btn_facebook.svg') }}" alt="Facebook" width="40" height="40"></a></li>
+              <li class="c-sns-item"><a href="https://twitter.com/intent/tweet?url={{ config('app.url') }}/&text={{ config('app.name') . config('app.name_description') }}" target="blank"><img src="{{ secure_asset('img/btn_twitter.svg') }}" alt="Twitter" width="40" height="40"></a></li>
+              <li class="c-sns-item"><a class="js-copy" href="javascript:void(0);" data-title="{{ config('app.name') . config('app.name_description') }}"><img src="{{ secure_asset('img/btn_link.svg') }}" alt="コピー" width="40" height="40"></a></li>
+            @else
+              <li class="c-sns-item"><a href="https://social-plugins.line.me/lineit/share?url={{ config('app.url') }}/" target="blank"><img src="{{ asset('img/btn_line.svg') }}" alt="LINE" width="40" height="40"></a></li>
+              <li class="c-sns-item"><a href="https://www.facebook.com/sharer/sharer.php?u={{ config('app.url') }}/" target="blank"><img src="{{ asset('img/btn_facebook.svg') }}" alt="Facebook" width="40" height="40"></a></li>
+              <li class="c-sns-item"><a href="https://twitter.com/intent/tweet?url={{ config('app.url') }}/&text={{ config('app.name') . config('app.name_description') }}" target="blank"><img src="{{ asset('img/btn_twitter.svg') }}" alt="Twitter" width="40" height="40"></a></li>
+              <li class="c-sns-item"><a class="js-copy" href="javascript:void(0);" data-title="{{ config('app.name') . config('app.name_description') }}"><img src="{{ asset('img/btn_link.svg') }}" alt="コピー" width="40" height="40"></a></li>
+            @endif
+          </ul>
+        </div>
+        <div class="c-home-area">
+          <h2 class="c-home-area-title">エリアで探す</h2>
+          <div class="c-home-area-col3-list-wrap">
+          <ul class="c-home-area-col3-list c-home-area-col3-list__with-photo">
+            <li class="c-home-area-col3-item">
+              <a href="{{ route('m_pref.index', ["pref_id" => '13']) }}" class="c-home-area-col3-link">
+                <div class="c-home-area-col3-pict"><img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/area_photo_tokyo.jpg') : asset('/img/area_photo_tokyo.jpg')}}" alt=""></div>
+                <div class="c-home-area-col3-text">東京都</div>
+              </a>
+            </li>
+            <li class="c-home-area-col3-item">
+              <a href="{{ route('m_pref.index', ["pref_id" => '14']) }}" class="c-home-area-col3-link">
+                <div class="c-home-area-col3-pict"><img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/area_photo_kanagawa.jpg') : asset('/img/area_photo_kanagawa.jpg') }}" alt=""></div>
+                <div class="c-home-area-col3-text">神奈川県</div>
+              </a>
+            </li>
+            <li class="c-home-area-col3-item">
+              <a href="{{ route('m_pref.index', ["pref_id" => '12']) }}" class="c-home-area-col3-link">
+                <div class="c-home-area-col3-pict"><img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/area_photo_chiba.png') : asset('/img/area_photo_chiba.png') }}" alt=""></div>
+                <div class="c-home-area-col3-text">千葉県</div>
+              </a>
+            </li>
+          </ul>
+          </div>
+          <div class="c-home-area-col3-list-wrap">
+          <ul class="c-home-area-col3-list">
+            <li class="c-home-area-col3-item"><a href="{{ route('m_pref.index', ["pref_id" => '11']) }}" class="c-home-area-col3-link"><div class="c-home-area-col3-text">埼玉県</div></a></li>
+            <li class="c-home-area-col3-item"><a href="{{ route('m_pref.index', ["pref_id" => '09']) }}" class="c-home-area-col3-link"><div class="c-home-area-col3-text">栃木県</div></a></li>
+            <li class="c-home-area-col3-item"><a href="{{ route('m_pref.index', ["pref_id" => '10']) }}" class="c-home-area-col3-link"><div class="c-home-area-col3-text">群馬県</div></a></li>
+            <li class="c-home-area-col3-item"><a href="{{ route('m_pref.index', ["pref_id" => '08']) }}" class="c-home-area-col3-link"><div class="c-home-area-col3-text">茨城県</div></a></li>
+          </ul>
+          </div>
+        </div>
+        <div class="c-hero">
+          <h1 class="c-hero-heading">食べログの点数で探せる、<br>宅配サービス一括検索サイト</h1>
+          <div class="c-hero-content">
+            <p class="c-hero-paragraph">お店に行かなくても美味しいご飯が食べたい！</p>
+            <p class="c-hero-paragraph">だけど、宅配サービスですぐに目につくのはチェーン店ばかり。しかも、宅配サービスごとに提供しているお店が違うので、美味しいお店を見落としがち。<br></p>
+            <p class="c-hero-paragraph">
+              そこで、普段使い慣れた食べログの情報を参照しながら、宅配サービスを横断してお店を探せるサービスを開発しました。お家にいながら、ぜひ美味しいご飯を開拓してみてください。</p>
+          </div>
+        </div>
+        <div class="c-services">
+          <h2 class="c-services-heading">現在対応している宅配サービス</h2>
+          <ul class="c-services-list">
+            <li class="c-services-item">楽天デリバリー</li>
+            <li class="c-services-item">dデリバリー</li>
+            <li class="c-services-item">Uber Eats</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </div>
 @endsection

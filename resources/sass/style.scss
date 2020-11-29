@@ -148,6 +148,60 @@ body {
   }
 }
 
+.c-home-area {
+  margin: 40px 20px;
+  @include mq(small) {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &-title {
+    font-size: 20px;
+    @include mq(small) {
+      font-size: 32px;
+      margin-left: 33px;
+      margin-right: 33px;
+    }
+  }
+  &-col3-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    &-wrap {
+      margin: 11px 17px 0;
+      @include mq(small) {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      & + & {
+        margin-top: -1px;
+      }
+    }
+  }
+  &-col3-item {
+    margin-top: 9px;
+    width: 31.5%;
+  }
+  &-col3-link {
+    display: block;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    font-size: 13px;
+    &:link, &:visited {
+      color: #333333;
+      text-decoration: none;
+    }
+  }
+  &-col3-pict {
+    border-radius: 9px 9px 0 0;
+    overflow: hidden;
+  }
+  &-col3-text {
+    padding: 9px 0 10px;
+    text-align: center;
+  }
+}
+
 .c-hero {
   padding: 0 20px;
   max-width: 540px;
@@ -216,6 +270,9 @@ body {
     display: flex;
     align-items: center;
     overflow: hidden;
+    .c-topic_path {
+      margin-top: 0;
+    }
   }
   &-post_number {
     font-size: 16px;
@@ -556,6 +613,165 @@ body {
     }
     &:visited {
       color: #3C8CF9;
+    }
+  }
+}
+
+.c-page-header {
+  margin: 0 12px;
+  @include mq(small) {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+.c-page-title {
+  margin-top: 29px;
+  font-size: 16px;
+  @include mq(small) {
+    margin-top: 24px;
+  }
+}
+.c-topic_path {
+  margin-top: 18px;
+  @include mq(small) {
+    margin-top: 15px;
+  }
+  &-list {
+    font-size: 12px;
+  }
+  &-item {
+    display: inline-block;
+    &::before {
+      display: inline-block;
+      content: '>';
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+    }
+    &:first-child::before {
+      content: none;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  &-link {
+    text-decoration: none;
+    &:link {
+      color: #3C8CF9;
+    }
+    &:visited {
+      color: #3C8CF9;
+    }
+  }
+}
+
+.c-area {
+  margin: 0 12px;
+  @include mq(small) {
+    width: 800px;
+    margin: 12px auto 0;
+  }
+  &-title {
+    font-size: 16px;
+    margin-top: 53px;
+    @include mq(small) {
+      margin-top: 40px;
+    }
+    & + .c-area-list {
+      margin-top: 17px;
+    }
+  }
+  &-list {
+  }
+  &-item {
+    margin-top: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+  }
+  &-link {
+    font-size: 13px;
+    display: block;
+    padding: 9px 18px 10px;
+    text-decoration: none;
+    &:link {
+      color: #333333;
+    }
+    &:visited {
+      color: #333333;
+    }
+  }
+  &-kana {
+    &-item {
+      margin-top: 10px;
+      border: 1px solid #dddddd;
+      border-radius: 10px;
+      font-size: 13px;
+    }
+    &-name {
+      cursor: pointer;
+      padding: 10px 12px 10px 51px;
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 13px;
+        left: 17px;
+        background: url("../img/ico_plus.svg") no-repeat 0 0;
+        width: 13px;
+        height: 13px;
+        display: block;
+        transform: rotate(0);
+        transition: transform .2s ease-out;
+      }
+      &.js-label-open::before {
+        transform: rotate(135deg);
+      }
+    }
+    &-content {
+      padding-left:65px;
+      opacity: 0;
+      visibility: hidden;
+      line-height: 0;
+      transition:
+        margin-top .2s ease-out,
+        padding-bottom .2s ease-out,
+        line-height .2s ease-out,
+        opacity .2s ease-out,
+        visibility .1s linear;
+      &.js-content-open {
+        margin-top: 8px;
+        padding-bottom: 25px;
+        opacity: 1;
+        visibility: visible;
+        line-height: 1.5;
+        transition:
+          margin-top .2s ease-out,
+          padding-bottom .2s ease-out,
+          line-height .2s ease-out,
+          opacity .1s linear .1s,
+          visibility .1s linear .1s;
+        .c-area-kana-content-link {
+          padding-top: 8px;
+          padding-bottom: 8px;
+        }
+      }
+      &-list {
+        list-style-type: none;
+      }
+      &-item {
+      }
+      &-link {
+        display: block;
+        text-decoration: none;
+        &:link {
+          color: #333;
+        }
+        &:visited {
+          color: #333;
+        }
+        transition:
+          padding-top .2s ease-out,
+          padding-bottom .2s ease-out;
+      }
     }
   }
 }
