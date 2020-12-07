@@ -1,21 +1,21 @@
 @extends('layouts.app')
 
 @section('title')
-  <title>{{ $pref->pref_name }}の出前・デリバリー・宅配を一括比較 - {{ config('app.name') }}</title>
+  <title>{{ $pref->pref_name }}でおすすめの出前・デリバリー・宅配を一括比較 - {{ config('app.name') }}</title>
 @endsection
 
 @section('meta')
   <meta name="description" content="{{ $pref->pref_name }}の出前・デリバリー・宅配を一括検索するならいえメシへ。主要宅配サービスの美味しい飲食店を簡単に比較・検索できます。宅配サイトで直接予約できるため手数料無料です。取扱サービスは、Uber Eats（ウーバーイーツ）,ｄデリバリー,楽天デリバリー。">
-  <meta property="og:title" content="{{ $pref->pref_name }}の出前・デリバリー・宅配を一括比較 - {{ config('app.name') }}">
+  <meta property="og:title" content="{{ $pref->pref_name }}でおすすめの出前・デリバリー・宅配を一括比較 - {{ config('app.name') }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ url()->current() }}">
   <meta property="og:image" content="{{ secure_asset('/img/app-icon/ogp-image.png')  }}">
   <meta property="og:site_name" content="{{ config('app.name') }}{{ config('app.name_description') }}。">
-  <meta property="og:description" content="お店に行かなくても美味しいご飯が食べたい！だけど、宅配サービスですぐに目につくのはチェーン店ばかり。しかも、宅配サービスごとに提供している...">
+  <meta property="og:description" content="{{ $pref->pref_name }}の出前・デリバリー・宅配を一括検索するならいえメシへ。主要宅配サービスの美味しい飲食店を簡単に比較・検索できます。宅配サイトで直接予約できるため手数料無料です。取扱サービスは、Uber Eats（ウーバーイーツ）,ｄデリバリー,楽天デリバリー。">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="iemeci">
-  <meta name="twitter:title" content="{{ $pref->pref_name }}の出前・デリバリー・宅配を一括比較">
-  <meta name="twitter:description" content="お店に行かなくても美味しいご飯が食べたい！だけど、宅配サービスですぐに目につくのはチェーン店ばかり。しかも、宅配サービスごとに提供している...">
+  <meta name="twitter:title" content="{{ $pref->pref_name }}でおすすめの出前・デリバリー・宅配を一括比較 - {{ config('app.name') }}">
+  <meta name="twitter:description" content="{{ $pref->pref_name }}の出前・デリバリー・宅配を一括検索するならいえメシへ。主要宅配サービスの美味しい飲食店を簡単に比較・検索できます。宅配サイトで直接予約できるため手数料無料です。取扱サービスは、Uber Eats（ウーバーイーツ）,ｄデリバリー,楽天デリバリー。">
   <meta name="twitter:image" content="{{ secure_asset('/img/app-icon/ogp-image.png')  }}">
 @endsection
 
