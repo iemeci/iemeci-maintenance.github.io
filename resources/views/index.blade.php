@@ -23,12 +23,19 @@
     <main class="l-main">
       <div class="l-content">
         <div class="c-catch">
-          <div class="c-catch-copy"><h1>料理デリバリーを<br>まとめて検索しよう</h1></div>
+          <h1 class="c-catch-copy">料理デリバリーを<br>まとめて検索しよう</h1></h1>
           <div class="c-catch-search">
-            <div class="c-catch-search-button"><button>現在地付近のお店を検索</button></div>
-            <div class="c-catch-search-areas">
-              <h2>利用可能エリア × サービス</h2>
-              <p>関東</p>
+            <div class="c-catch-search-button-area">
+              <button class="c-catch-search-button">現在地付近のお店を検索</button></div>
+            <div class="c-catch-search-area">
+              <h2 class="c-catch-search-area-title">利用可能エリア × サービス</h2>
+              <p class="c-catch-search-area-body">
+                @if(app('env') == 'production' || app('env') == 'staging')
+                <img src="{{ secure_asset('/img/kanto_rakuten-delivery_d-delivery_uber-eats.png') }}" alt="" width="100%">
+                @else
+                <img src="{{ asset('/img/kanto_rakuten-delivery_d-delivery_uber-eats.png') }}" alt="" width="100%">
+                @endif
+              </p>
             </div>
           </div>
         </div>

@@ -94,7 +94,46 @@ body {
 }
 
 .c-catch {
-
+  background: url("../img/catch_bg_sp.png") #FFE6C1 center 93px no-repeat;
+  padding: 40px 20px 44px;
+  //background-size: 293.5px auto;
+  &-copy {
+    font-size: 34px;
+    line-height: 1.25;
+    margin-bottom: 290px;
+  }
+  &-search {
+    background-color: #fff;
+    margin: 0 20px;
+    padding: 27px 0 0;
+    border-radius: 10px;
+    &-button {
+      display: block;
+      background: linear-gradient(90deg, #FFA800 0%, #FF9153 100%);
+      border: none;
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      border-radius: 100px;
+      padding: 12px 0 13px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      width: 100%;
+      &-area {
+        margin: 0 20px;
+      }
+    }
+    &-area {
+      margin: 24px 20px 0;
+      padding-bottom: 16px;
+      &-title {
+        font-size: 14px;
+        color: #aaaaaa;
+      }
+      &-body {
+        margin-top: 7px;
+      }
+    }
+  }
 }
 .c-sns {
   //margin: 26px auto 0;
@@ -107,7 +146,7 @@ body {
 }
 
 .c-home-area {
-  margin: 40px 20px;
+  margin: 70px 20px 60px;
   @include mq(small) {
     max-width: 500px;
     margin-left: auto;
