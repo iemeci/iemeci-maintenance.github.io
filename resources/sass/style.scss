@@ -97,16 +97,30 @@ body {
   background: url("../img/catch_bg_sp.png") #FFE6C1 center 93px no-repeat;
   padding: 40px 20px 44px;
   //background-size: 293.5px auto;
+  @include mq(small) {
+    background: url("../img/catch_bg_pc.png") #FFE6C1 center 0 no-repeat;
+  }
   &-copy {
     font-size: 34px;
     line-height: 1.25;
     margin-bottom: 290px;
+    @include mq(small) {
+      font-size: 45px;
+      text-align: center;
+      margin-bottom: 51px;
+    }
   }
   &-search {
     background-color: #fff;
     margin: 0 20px;
     padding: 27px 0 0;
     border-radius: 10px;
+    @include mq(small) {
+      margin-left: auto;
+      margin-right: auto;
+      width: 453px;
+      padding-top: 25px;
+    }
     &-button {
       display: block;
       background: linear-gradient(90deg, #FFA800 0%, #FF9153 100%);
@@ -125,12 +139,22 @@ body {
     &-area {
       margin: 24px 20px 0;
       padding-bottom: 16px;
+      @include mq(small) {
+        margin: 24px 30px;
+      }
       &-title {
         font-size: 14px;
         color: #aaaaaa;
       }
       &-body {
         margin-top: 7px;
+        img {
+          max-width: 300px;
+          margin: auto;
+        }
+        @include mq(small) {
+          text-align: center;
+        }
       }
     }
   }

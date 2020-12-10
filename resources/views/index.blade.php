@@ -26,14 +26,19 @@
           <h1 class="c-catch-copy">料理デリバリーを<br>まとめて検索しよう</h1></h1>
           <div class="c-catch-search">
             <div class="c-catch-search-button-area">
-              <button class="c-catch-search-button">現在地付近のお店を検索</button></div>
+              <form action="{{ route('shop.index') }}" name="submit_location">
+                <input type="hidden" name="lat" value="">
+                <input type="hidden" name="lng" value="">
+                <button class="c-catch-search-button js-submit-location">現在地付近のお店を検索</button>
+              </form>
+            </div>
             <div class="c-catch-search-area">
               <h2 class="c-catch-search-area-title">利用可能エリア × サービス</h2>
               <p class="c-catch-search-area-body">
                 @if(app('env') == 'production' || app('env') == 'staging')
-                <img src="{{ secure_asset('/img/kanto_rakuten-delivery_d-delivery_uber-eats.png') }}" alt="" width="100%">
+                <img src="{{ secure_asset('/img/kanto_rakuten-delivery_d-delivery_uber-eats.png') }}" alt="関東×Uber Eats、楽天デリバリー、ｄデリバリー" width="100%">
                 @else
-                <img src="{{ asset('/img/kanto_rakuten-delivery_d-delivery_uber-eats.png') }}" alt="" width="100%">
+                <img src="{{ asset('/img/kanto_rakuten-delivery_d-delivery_uber-eats.png') }}" alt="関東×Uber Eats、楽天デリバリー、ｄデリバリー" width="100%">
                 @endif
               </p>
             </div>
