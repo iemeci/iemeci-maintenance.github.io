@@ -58,13 +58,8 @@ body {
 
 .l-footer {
   margin-top: 66px;
-  padding-top: 35px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 35px 15px;
   background-color: #eeeeee;
-  &_inner {
-    height: 85px;
-  }
   @include mq(small) {
     margin-top: 59px;
     padding-top: 45px;
