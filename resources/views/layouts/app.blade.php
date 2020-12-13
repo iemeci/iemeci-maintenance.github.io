@@ -32,11 +32,7 @@
   <header class="l-header">
     <div class="l-header_inner">
       <div class="p-header"><a class="p-header_brand" href="/">
-          @if(app('env') == 'production' || app('env') == 'staging')
-          <div class="p-header_brand-logo"><img src="{{ secure_asset('/img/site_logo.svg') }}" alt="{{ config('app.name', 'Laravel') }}" width="50" height="40"></div>
-          @else
-          <div class="p-header_brand-logo"><img src="{{ asset('/img/site_logo.svg') }}" alt="{{ config('app.name', 'Laravel') }}" width="50" height="40"></div>
-          @endif
+          <div class="p-header_brand-logo"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA1MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMwLjcyMjEgOC40NjM4N0wyOC42NzQ5IDkuNjQ1ODJDMjQuNjQxNiA1LjUzNTkxIDE4LjIwOSA0LjQ4Nzc1IDEyLjk5MDQgNy41QzcuNzcyMzcgMTAuNTEzNCA1LjQ2MzgyIDE2LjYwODIgNy4wMDY0NSAyMi4xNTYxTDQuOTU5MjQgMjMuMzM4MUM0Ljk1OTI0IDIzLjMzODEgNy42MjY3IDMxLjM4NzYgMTguNDAxOSAzMS41ODY5QzE5LjExMDIgMzEuNjQ1MyAxOS44MjQzIDMxLjYzNzggMjAuNTM4NyAzMS41NzgzTDIyLjAxNTYgMzQuNzcyOUwzMi4wOTY4IDI4Ljk1MjZMMzAuMDY4NiAyNi4wNzYzQzMwLjQ3NzQgMjUuNDg3MiAzMC44NDA5IDI0Ljg3MjYgMzEuMTQ0NSAyNC4yM0MzNi4zNTk1IDE0Ljc5ODcgMzAuNzIyMSA4LjQ2Mzg3IDMwLjcyMjEgOC40NjM4N1pNMTcuODQwNyAxNS45MDFMOS4zMzE5OCAyMC44MTM1QzguOTk3MDQgMTkuMjExNSA5LjA0ODg3IDE3LjU3MiA5LjQ2MjkyIDE2LjAyMzJDMTAuMTUwNCAxMy40NjEyIDExLjgwNiAxMS4xNzE2IDE0LjI4MzggOS43NDAyOEMxNi43NjIzIDguMzEwMDcgMTkuNTcyOSA4LjAyMTA4IDIyLjEzNTQgOC43MDY3NUMyMy42ODM4IDkuMTIyNTcgMjUuMTI5NCA5Ljg5NzM1IDI2LjM0OTQgMTAuOTg4NUwxNy44NDA3IDE1LjkwMVoiIGZpbGw9IiNGRkE4MDAiLz4KPHJlY3QgeD0iMjcuMDIzMiIgeT0iMTAuNjgxNiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjIiIHJ4PSIxIiBmaWxsPSIjRkZBODAwIi8+CjxyZWN0IHg9IjQxLjAyMzIiIHk9IjEwLjY4MTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjIiIHJ4PSIxIiBmaWxsPSIjRkZBODAwIi8+CjxyZWN0IHg9IjIzLjAyMzIiIHk9IjIzLjY4MTYiIHdpZHRoPSIxNSIgaGVpZ2h0PSIyIiByeD0iMSIgZmlsbD0iI0ZGQTgwMCIvPgo8cmVjdCB4PSI0NS4wMjMyIiB5PSIyNi42ODE2IiB3aWR0aD0iNCIgaGVpZ2h0PSIyIiByeD0iMSIgZmlsbD0iI0ZGQTgwMCIvPgo8cmVjdCB4PSIyOS4wMjMyIiB5PSIxNi42ODE2IiB3aWR0aD0iMTUiIGhlaWdodD0iMiIgcng9IjEiIGZpbGw9IiNGRkE4MDAiLz4KPHJlY3QgeD0iMjkuMDIzMiIgeT0iMjYuNjgxNiIgd2lkdGg9IjE1IiBoZWlnaHQ9IjIiIHJ4PSIxIiBmaWxsPSIjRkZBODAwIi8+Cjwvc3ZnPgo=" alt="" width="50" height="40"></div>
           <div class="p-header_brand-title">{{ config('app.name', 'Laravel') }}</div>
         </a>
         <div class="p-header_description">食べログの点数で探せる、<br>宅配サービス一括検索サイト</div>
