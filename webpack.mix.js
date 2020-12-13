@@ -1,6 +1,7 @@
 const mix = require('laravel-mix');
 const packageImporter = require('node-sass-package-importer');
 const CssoWebpackPlugin = require('csso-webpack-plugin').default;
+const compressionPlugin = require('compression-webpack-plugin');
 require('laravel-mix-imagemin');
 require('laravel-mix-compress-images');
 mix.config.fileLoaderDirs.images = 'img';
@@ -94,6 +95,17 @@ mix.js('resources/js/app.js', 'public/js')
             ],
         }
     )
+    .webpackConfig({
+        plugins: [
+            new compressionPlugin({
+                filename: '[path].gz[query]',
+                algorithm: 'gzip',
+                test: /\.js$|\.css$|\.html$|\.svg$/,
+                threshold: 10240,
+                minRatio: 0.8,
+              })
+          ]
+      })
     // .options(
     //     {
     //         importer: packageImporter({
