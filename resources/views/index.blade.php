@@ -63,7 +63,7 @@
             </li>
             <li class="c-home-area-col3-item">
               <a href="{{ route('m_pref.index', ["pref_id" => '12']) }}" class="c-home-area-col3-link">
-                <div class="c-home-area-col3-pict"><img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/area_photo_chiba.png') : asset('/img/area_photo_chiba.png') }}" alt=""></div>
+                <div class="c-home-area-col3-pict"><img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/area_photo_chiba.jpg') : asset('/img/area_photo_chiba.jpg') }}" alt=""></div>
                 <div class="c-home-area-col3-text">千葉県</div>
               </a>
             </li>
