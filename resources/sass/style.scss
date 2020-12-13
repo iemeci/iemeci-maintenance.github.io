@@ -223,6 +223,9 @@ body {
   &-col3-pict {
     border-radius: 9px 9px 0 0;
     overflow: hidden;
+    img {
+      width: 100px;
+    }
   }
   &-col3-text {
     padding: 9px 0 10px;
@@ -743,7 +746,8 @@ body {
         position: absolute;
         top: 13px;
         left: 17px;
-        background: url("../img/ico_plus.svg") no-repeat 0 0;
+        //background: url("../img/ico_plus.svg") no-repeat 0 0;
+        background: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2014%2014%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M6.25%207.75V13.5H7.75V7.75H13.5V6.25H7.75V0.5H6.25V6.25H0.5V7.75H6.25Z%22%20fill%3D%22%23AAAAAA%22%2F%3E%3C%2Fsvg%3E") no-repeat 0 0;
         width: 13px;
         height: 13px;
         display: block;
