@@ -16,6 +16,7 @@
     },
     "devDependencies": {
         "axios": "^0.19",
+        "compression-webpack-plugin": "^6.1.1",
         "cross-env": "^7.0",
         "csso-webpack-plugin": "^2.0.0-beta.1",
         "gifsicle": "^5.0.0",
