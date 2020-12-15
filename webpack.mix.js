@@ -98,7 +98,7 @@ mix.js('resources/js/app.js', 'public/js')
     .webpackConfig({
         plugins: [
             new compressionPlugin({
-                filename: '[path].gz[query]',
+                filename: '[path][base].gz[query]',
                 algorithm: 'gzip',
                 test: /\.js$|\.css$|\.html$|\.svg$/,
                 threshold: 10240,
