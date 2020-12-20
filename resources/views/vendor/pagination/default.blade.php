@@ -29,7 +29,7 @@
                 @if ($i == $paginator->currentPage())
                     <li class="c-pager-item active"><span class="c-pager-current">{{ $i }}</span></li>
                 @else
-                    <li class="c-pager-item"><a class="c-pager-link" href="{{ $paginator->url($i) }}">{{ $i }}</a></li>
+                    <li class="c-pager-item"><a class="c-pager-link" href="{{ str_replace($paginator->url($i), "https://iemeci-prod.herokuapp.com", config("APP_URL")) }}">{{ $i }}</a></li>
                 @endif
             @endfor
         </ul>
