@@ -10,7 +10,7 @@
   @inline('/css/common.css')
   @yield('page_css')
   @if(app('env') == 'production' || app('env') == 'staging')
-    <link href="{{ secure_asset('css/style.css') }}" rel="preload" as="style">
+    <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
     <script src="{{ secure_asset('js/app.js') }}" defer></script>
   @else
     <link href="{{ asset('css/style.css') }}" rel="preload" as="style">
