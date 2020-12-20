@@ -4,6 +4,10 @@
   <title>【{{ config('app.name') }}】出前・デリバリー・宅配一括比較サイト</title>
 @endsection
 
+@section('page_css')
+  @inline('/css/home.css')
+@endsection
+
 @section('meta')
   <meta name="description" content="【{{ config('app.name') }}】出前・デリバリー・宅配を一括検索できる宅配比較サイト。主要宅配サービスの美味しい飲食店を簡単に比較・検索できます。宅配サイトで直接予約できるため手数料無料です。取扱サービスは、Uber Eats（ウーバーイーツ）,ｄデリバリー,楽天デリバリー。">
   <meta property="og:title" content="【{{ config('app.name') }}】出前・デリバリー・宅配一括比較サイト">

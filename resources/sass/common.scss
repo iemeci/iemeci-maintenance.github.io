@@ -1,0 +1,91 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&family=Roboto:400,700&display=swap');
+@import "reset";
+@import "_mixin/mixins";
+
+body {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: auto;
+  background-color: #fff;
+  color: #333;
+  font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+}
+
+.l-header {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+}
+
+.p-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &_brand {
+    display: flex;
+    margin: 10px;
+    height: 40px;
+    color: #484848;
+    text-decoration: none;
+    &-logo {
+      margin-right: 6px;
+      width: 50px;
+      height: 40px;
+    }
+    &-title {
+      font-size: 24px;
+      font-weight: 700;
+      height: 38px;
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+  }
+  &_description {
+    font-size: 11px;
+    line-height: 1.18;
+    margin-right: 5px;
+    @include mq(xsmall) {
+      margin-right: 20px;
+    }
+    @include mq(small) {
+      margin-left: 23px;
+      margin-right: 38px;
+    }
+  }
+}
+
+.l-footer {
+  margin-top: 66px;
+  padding: 35px 15px;
+  background-color: #eeeeee;
+  @include mq(small) {
+    margin-top: 59px;
+    padding-top: 45px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.c-footer {
+  &_menu-list {
+    @include mq(small) {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+  &_menu-item {
+    margin-right: 45px;
+    font-size: 16px;
+    margin-top: 10px;
+    @include mq(small) {
+      margin-top: 0;
+    }
+  }
+  &_menu-link {
+    color: #000;
+    text-decoration: none;
+  }
+}

@@ -5,7 +5,17 @@ const compressionPlugin = require('compression-webpack-plugin');
 require('laravel-mix-imagemin');
 require('laravel-mix-compress-images');
 mix.config.fileLoaderDirs.images = 'img';
-
+mix.webpackConfig({
+  plugins: [
+    new compressionPlugin({
+      filename: '[path][base].gz[query]',
+      algorithm: 'gzip',
+      test: /\.(js|css|svg)$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    })
+  ]
+});
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -77,6 +87,8 @@ mix.config.fileLoaderDirs.images = 'img';
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/style.scss', 'public/css')
+    .sass('resources/sass/common.scss', 'public/css')
+    .sass('resources/sass/home.scss', 'public/css')
     .imagemin('img/**/*',
         {
         context: 'resources',
@@ -95,17 +107,7 @@ mix.js('resources/js/app.js', 'public/js')
             ],
         }
     )
-    .webpackConfig({
-        plugins: [
-            new compressionPlugin({
-                filename: '[path][base].gz[query]',
-                algorithm: 'gzip',
-                test: /\.js$|\.css$|\.html$|\.svg$/,
-                threshold: 10240,
-                minRatio: 0.8,
-              })
-          ]
-      })
+
     // .options(
     //     {
     //         importer: packageImporter({
@@ -133,3 +135,14 @@ mix.js('resources/js/app.js', 'public/js')
 //     }
 // );
 
+mix.webpackConfig({
+  plugins: [
+    new compressionPlugin({
+      filename: '[path][base].gz[query]',
+      algorithm: 'gzip',
+      test: /\.(js|css|svg)$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    })
+  ]
+})
