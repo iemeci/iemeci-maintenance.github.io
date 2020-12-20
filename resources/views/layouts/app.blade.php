@@ -7,11 +7,13 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   @yield('no_index')
+  @inline('/css/common.css')
+  @yield('page_css')
   @if(app('env') == 'production' || app('env') == 'staging')
-    <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/style.css') }}" rel="preload" as="style">
     <script src="{{ secure_asset('js/app.js') }}" defer></script>
   @else
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="preload" as="style">
     <script src="{{ asset('js/app.js') }}" defer></script>
   @endif
   <head prefix="og: http://ogp.me/ns#">

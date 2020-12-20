@@ -121,6 +121,7 @@
       <path value="$PROJECT_DIR$/vendor/renatomarinho/laravel-page-speed" />
       <path value="$PROJECT_DIR$/vendor/scrivo/highlight.php" />
       <path value="$PROJECT_DIR$/vendor/laravelium/sitemap" />
+      <path value="$PROJECT_DIR$/vendor/appstract/laravel-blade-directives" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
