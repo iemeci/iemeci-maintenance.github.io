@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="iemeci@localhost" uuid="6efe8163-328c-4f08-b4e0-d61270eb496a">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:8889/iemeci</jdbc-url>
-    </data-source>
     <data-source source="LOCAL" name="uncopi_iemeci@mysql624.db.sakura.ne.jp" uuid="7ea0a1a6-f930-4518-b882-3e37b576c299">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
@@ -24,6 +18,13 @@
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://us-cdbr-east-02.cleardb.com:3306/heroku_0f8d9c02274d35b</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="root@MAMP" uuid="e78489aa-0be6-4ba6-986b-137f80993622">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:8889</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
 </project>

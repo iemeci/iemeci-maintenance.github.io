@@ -113,7 +113,7 @@
                                                             <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__uber-eats" href="{{ 'https://www.ubereats.com' . $shop->shop_url_uber_eats }}" rel="nofollow">Uber <span>Eats</span></a></li>
                                                         @endif
                                                         @if ( $shop->shop_url_demaekan )
-                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__demaekan" href="{{ urlencode('https://demae-can.com' . $shop->shop_url_demaekan) }}" rel="nofollow">出前館</a></li>
+                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__demaekan" href="{{ 'https://demae-can.com' . $shop->shop_url_demaekan }}" rel="nofollow">出前館</a></li>
                                                         @endif
                                                         @if ( $shop->shop_url_d_delivery )
                                                             <li class="c-shop-enable_item"><a
