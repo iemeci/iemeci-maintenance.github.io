@@ -34,24 +34,20 @@ class SitemapController extends Controller
     // キャッシュの設定。単位は分
     $sitemap->setCache('laravel.sitemap-basics', 1440);
     if (!$sitemap->isCached()) {
-      $select_pref = ['08', '09', '10', '11', '12', '13', '14'];
       // ページ１のURLを追加
       $prefs = DB::table('m_prefs')
         ->select('pref_id')
-        ->whereIn('pref_id', $select_pref)
         ;
       //dd(compact(['prefs']));
 
       $cities = DB::table('m_cities')
         ->select('city_id')
-        ->whereIn('city_pref_id', $select_pref)
         ;
       // dd(compact(['cities']));
 
       $towns = DB::table('m_towns')
         ->select('town_id')
         ->join(DB::Raw("({$cities->toSql()}) as city"), 'm_towns.town_city_id', '=', 'city.city_id')
-        ->setBindings($select_pref)
         ;
       // dd(compact(['towns']));
 
