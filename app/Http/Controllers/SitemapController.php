@@ -132,8 +132,8 @@ class SitemapController extends Controller
           'yearly'
         );
       }
-      return $sitemap->render('xml');
     }
+    return $sitemap->render('xml');
   }
 
   public function streets_hokkaido() {
