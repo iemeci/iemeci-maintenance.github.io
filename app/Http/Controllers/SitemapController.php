@@ -18,8 +18,17 @@ class SitemapController extends Controller
     $sitemap->setCache('laravel.sitemap', 1440);
     if (!$sitemap->isCached()) {
       // sitemapのURLを追加
-      $sitemap->addSitemap(route('sitemap-area_towns'));
+      $sitemap->addSitemap(route('sitemap-area_prefs'));
+      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 0]));
+      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 1]));
+      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 2]));
+      $sitemap->addSitemap(route('sitemap-hokkaido'));
+      $sitemap->addSitemap(route('sitemap-tohoku'));
       $sitemap->addSitemap(route('sitemap-kanto'));
+      $sitemap->addSitemap(route('sitemap-chubu'));
+      $sitemap->addSitemap(route('sitemap-kinki'));
+      $sitemap->addSitemap(route('sitemap-chugoku'));
+      $sitemap->addSitemap(route('sitemap-kyushu'));
       // sitemapを増やす場合はココに追記していく。
     }
     // XML形式で出力
@@ -28,32 +37,22 @@ class SitemapController extends Controller
   }
 
   // sitemapを出力する
-  public function area_towns()
+  public function area_prefs()
   {
     $sitemap = \App::make("sitemap");
     // キャッシュの設定。単位は分
     $sitemap->setCache('laravel.sitemap-basics', 1440);
     if (!$sitemap->isCached()) {
-      $select_pref = ['08', '09', '10', '11', '12', '13', '14'];
       // ページ１のURLを追加
       $prefs = DB::table('m_prefs')
         ->select('pref_id')
-        ->whereIn('pref_id', $select_pref)
         ;
       //dd(compact(['prefs']));
 
       $cities = DB::table('m_cities')
         ->select('city_id')
-        ->whereIn('city_pref_id', $select_pref)
         ;
       // dd(compact(['cities']));
-
-      $towns = DB::table('m_towns')
-        ->select('town_id')
-        ->join(DB::Raw("({$cities->toSql()}) as city"), 'm_towns.town_city_id', '=', 'city.city_id')
-        ->setBindings($select_pref)
-        ;
-      // dd(compact(['towns']));
 
       $sitemap->add(
         route('home'),
@@ -87,12 +86,118 @@ class SitemapController extends Controller
         );
       }
 
+    }
+    // XML形式で出力
+    return $sitemap->render('xml');
+  }
+
+  public function towns($area_group_id) {
+    $select_area_group = [
+      ['01', '02', '03']
+      ,['04']
+      ,['05', '06', '07']
+    ];
+
+    $sitemap = \App::make("sitemap");
+    $sitemap->setCache('laravel.sitemap-index', 1440);
+    if (!$sitemap->isCached()) {
+      // ページ１のURLを追加
+      $areas = DB::table('m_areas')
+        ->select('area_id')
+      ;
+
+      $prefs = DB::table('m_prefs')
+        ->select('pref_id', 'pref_area_id')
+      ;
+      //dd(compact(['prefs']));
+
+      $cities = DB::table('m_cities')
+        ->select('city_id', 'city_pref_id')
+      ;
+      // dd(compact(['cities']));
+
+      $towns = DB::table('m_towns')
+        ->select('town_id')
+        ->join(DB::Raw("({$cities->toSql()}) as city"), 'm_towns.town_city_id', '=', 'city.city_id')
+        ->join(DB::RAW("({$prefs->toSql()}) as pref"), 'city.city_pref_id', '=', 'pref.pref_id')
+        ->join(DB::RAW("({$areas->toSql()}) as area"), 'pref.pref_area_id', '=', 'area.area_id')
+        ->whereIn('area.area_id', $select_area_group[(integer) $area_group_id])
+      ;
+       // dd(compact(['towns']));
+
       foreach($towns->get() as $town) {
         $sitemap->add(
           route('m_town.index', ["town_id" => $town->town_id]),
           Carbon::now(),
           1.0,
           'yearly'
+        );
+      }
+
+    }
+  }
+
+  public function streets_hokkaido() {
+    $sitemap = \App::make("sitemap");
+    // キャッシュの設定。単位は分
+    $sitemap->setCache('laravel.sitemap-index', 1440);
+    if (!$sitemap->isCached()) {
+      // sitemapのURLを追加
+      $areas = DB::table('m_areas')
+        ->select('area_id')
+        ->where('area_id', '=', '03')
+      ;
+
+      $streets = DB::table(DB::raw("({$areas->toSql()}) as areas"))
+        ->select('street_id')
+        ->join('m_prefs', 'areas.area_id', '=', 'm_prefs.pref_area_id')
+        ->join('m_cities', 'm_prefs.pref_id', '=', 'm_cities.city_pref_id')
+        ->join('m_towns', 'm_cities.city_id', '=', 'm_towns.town_city_id')
+        ->join('m_streets', 'm_towns.town_id', '=', 'm_streets.street_town_id')
+        ->setBindings(['01'])
+        ->get();
+
+
+      foreach($streets as $street) {
+        $sitemap->add(
+          route('m_street.index', ["street_id" => $street->street_id]),
+          Carbon::now(),
+          1.0,
+          'monthly'
+        );
+      }
+    }
+    // XML形式で出力
+    return $sitemap->render('xml');
+  }
+
+  public function streets_tohoku() {
+    $sitemap = \App::make("sitemap");
+    // キャッシュの設定。単位は分
+    $sitemap->setCache('laravel.sitemap-index', 1440);
+    if (!$sitemap->isCached()) {
+      // sitemapのURLを追加
+      $areas = DB::table('m_areas')
+        ->select('area_id')
+        ->where('area_id', '=', '03')
+      ;
+
+      $streets = DB::table(DB::raw("({$areas->toSql()}) as areas"))
+        ->select('street_id')
+        ->join('m_prefs', 'areas.area_id', '=', 'm_prefs.pref_area_id')
+        ->join('m_cities', 'm_prefs.pref_id', '=', 'm_cities.city_pref_id')
+        ->join('m_towns', 'm_cities.city_id', '=', 'm_towns.town_city_id')
+        ->join('m_streets', 'm_towns.town_id', '=', 'm_streets.street_town_id')
+        ->setBindings(['02'])
+        ->get();
+
+
+      foreach($streets as $street) {
+        $sitemap->add(
+          route('m_street.index', ["street_id" => $street->street_id]),
+          Carbon::now(),
+          1.0,
+          'monthly'
         );
       }
     }
@@ -133,4 +238,141 @@ class SitemapController extends Controller
     // XML形式で出力
     return $sitemap->render('xml');
   }
+
+  public function streets_chubu() {
+    $sitemap = \App::make("sitemap");
+    // キャッシュの設定。単位は分
+    $sitemap->setCache('laravel.sitemap-index', 1440);
+    if (!$sitemap->isCached()) {
+      // sitemapのURLを追加
+      $areas = DB::table('m_areas')
+        ->select('area_id')
+        ->where('area_id', '=', '03')
+      ;
+
+      $streets = DB::table(DB::raw("({$areas->toSql()}) as areas"))
+        ->select('street_id')
+        ->join('m_prefs', 'areas.area_id', '=', 'm_prefs.pref_area_id')
+        ->join('m_cities', 'm_prefs.pref_id', '=', 'm_cities.city_pref_id')
+        ->join('m_towns', 'm_cities.city_id', '=', 'm_towns.town_city_id')
+        ->join('m_streets', 'm_towns.town_id', '=', 'm_streets.street_town_id')
+        ->setBindings(['04'])
+        ->get();
+
+
+      foreach($streets as $street) {
+        $sitemap->add(
+          route('m_street.index', ["street_id" => $street->street_id]),
+          Carbon::now(),
+          1.0,
+          'monthly'
+        );
+      }
+    }
+    // XML形式で出力
+    return $sitemap->render('xml');
+  }
+
+  public function streets_kinki() {
+    $sitemap = \App::make("sitemap");
+    // キャッシュの設定。単位は分
+    $sitemap->setCache('laravel.sitemap-index', 1440);
+    if (!$sitemap->isCached()) {
+      // sitemapのURLを追加
+      $areas = DB::table('m_areas')
+        ->select('area_id')
+        ->where('area_id', '=', '03')
+      ;
+
+      $streets = DB::table(DB::raw("({$areas->toSql()}) as areas"))
+        ->select('street_id')
+        ->join('m_prefs', 'areas.area_id', '=', 'm_prefs.pref_area_id')
+        ->join('m_cities', 'm_prefs.pref_id', '=', 'm_cities.city_pref_id')
+        ->join('m_towns', 'm_cities.city_id', '=', 'm_towns.town_city_id')
+        ->join('m_streets', 'm_towns.town_id', '=', 'm_streets.street_town_id')
+        ->setBindings(['05'])
+        ->get();
+
+
+      foreach($streets as $street) {
+        $sitemap->add(
+          route('m_street.index', ["street_id" => $street->street_id]),
+          Carbon::now(),
+          1.0,
+          'monthly'
+        );
+      }
+    }
+    // XML形式で出力
+    return $sitemap->render('xml');
+  }
+
+  public function streets_chugoku() {
+    $sitemap = \App::make("sitemap");
+    // キャッシュの設定。単位は分
+    $sitemap->setCache('laravel.sitemap-index', 1440);
+    if (!$sitemap->isCached()) {
+      // sitemapのURLを追加
+      $areas = DB::table('m_areas')
+        ->select('area_id')
+        ->where('area_id', '=', '03')
+      ;
+
+      $streets = DB::table(DB::raw("({$areas->toSql()}) as areas"))
+        ->select('street_id')
+        ->join('m_prefs', 'areas.area_id', '=', 'm_prefs.pref_area_id')
+        ->join('m_cities', 'm_prefs.pref_id', '=', 'm_cities.city_pref_id')
+        ->join('m_towns', 'm_cities.city_id', '=', 'm_towns.town_city_id')
+        ->join('m_streets', 'm_towns.town_id', '=', 'm_streets.street_town_id')
+        ->setBindings(['06'])
+        ->get();
+
+
+      foreach($streets as $street) {
+        $sitemap->add(
+          route('m_street.index', ["street_id" => $street->street_id]),
+          Carbon::now(),
+          1.0,
+          'monthly'
+        );
+      }
+    }
+    // XML形式で出力
+    return $sitemap->render('xml');
+  }
+
+  public function streets_kyushu() {
+    $sitemap = \App::make("sitemap");
+    // キャッシュの設定。単位は分
+    $sitemap->setCache('laravel.sitemap-index', 1440);
+    if (!$sitemap->isCached()) {
+      // sitemapのURLを追加
+      $areas = DB::table('m_areas')
+        ->select('area_id')
+        ->where('area_id', '=', '03')
+      ;
+
+      $streets = DB::table(DB::raw("({$areas->toSql()}) as areas"))
+        ->select('street_id')
+        ->join('m_prefs', 'areas.area_id', '=', 'm_prefs.pref_area_id')
+        ->join('m_cities', 'm_prefs.pref_id', '=', 'm_cities.city_pref_id')
+        ->join('m_towns', 'm_cities.city_id', '=', 'm_towns.town_city_id')
+        ->join('m_streets', 'm_towns.town_id', '=', 'm_streets.street_town_id')
+        ->setBindings(['07'])
+        ->get();
+
+
+      foreach($streets as $street) {
+        $sitemap->add(
+          route('m_street.index', ["street_id" => $street->street_id]),
+          Carbon::now(),
+          1.0,
+          'monthly'
+        );
+      }
+    }
+    // XML形式で出力
+    return $sitemap->render('xml');
+  }
 }
+
