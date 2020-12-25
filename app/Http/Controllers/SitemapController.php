@@ -101,7 +101,6 @@ class SitemapController extends Controller
     $sitemap = \App::make("sitemap");
     $sitemap->setCache('laravel.sitemap-index', 1440);
     if (!$sitemap->isCached()) {
-      // ページ１のURLを追加
       $areas = DB::table('m_areas')
         ->select('area_id')
       ;
@@ -123,7 +122,7 @@ class SitemapController extends Controller
         ->join(DB::RAW("({$areas->toSql()}) as area"), 'pref.pref_area_id', '=', 'area.area_id')
         ->whereIn('area.area_id', $select_area_group[(integer) $area_group_id])
       ;
-       // dd(compact(['towns']));
+      // dd(compact(['towns']));
 
       foreach($towns->get() as $town) {
         $sitemap->add(
@@ -133,7 +132,7 @@ class SitemapController extends Controller
           'yearly'
         );
       }
-
+      return $sitemap->render('xml');
     }
   }
 
