@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth.very_basic'], function()
 {
     Route::get('/', function () {return view('index');})->name('home');
+    Route::get('/area/{area_id}', 'm_AreaController@index')->name('m_area.index');
     Route::get('/pref/{pref_id}', 'm_CityController@index')->name('m_pref.index');
     Route::get('/city/{city_id}', 'm_TownController@index')->name('m_city.index');
     Route::get('/town/{town_id}', 'm_StreetController@index')->name('m_town.index');

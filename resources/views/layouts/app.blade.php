@@ -13,7 +13,7 @@
     <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
     <script src="{{ secure_asset('js/app.js') }}" defer></script>
   @else
-    <link href="{{ asset('css/style.css') }}" rel="preload" as="style">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
     <script src="{{ asset('js/app.js') }}" defer></script>
   @endif
   <head prefix="og: http://ogp.me/ns#">
