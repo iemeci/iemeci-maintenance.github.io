@@ -101,10 +101,6 @@ class SitemapController extends Controller
     $sitemap = \App::make("sitemap");
     $sitemap->setCache('laravel.sitemap-index', 1440);
     if (!$sitemap->isCached()) {
-      $areas = DB::table('m_areas')
-        ->select('area_id')
-      ;
-
       $prefs = DB::table('m_prefs')
         ->select('pref_id', 'pref_area_id')
       ;
@@ -116,11 +112,15 @@ class SitemapController extends Controller
       // dd(compact(['cities']));
 
       $towns = DB::table('m_towns')
+        ->select('town_id', 'town_city_id')
+      ;
+
+      $towns = DB::table('m_areas')
         ->select('town_id')
-        ->join(DB::Raw("({$cities->toSql()}) as city"), 'm_towns.town_city_id', '=', 'city.city_id')
-        ->join(DB::RAW("({$prefs->toSql()}) as pref"), 'city.city_pref_id', '=', 'pref.pref_id')
-        ->join(DB::RAW("({$areas->toSql()}) as area"), 'pref.pref_area_id', '=', 'area.area_id')
-        ->whereIn('area.area_id', $select_area_group[(integer) $area_group_id])
+        ->join(DB::RAW("({$prefs->toSql()}) as pref"), 'm_areas.area_id', '=', 'pref.pref_area_id')
+        ->join(DB::Raw("({$cities->toSql()}) as city"), 'pref.pref_id', '=', 'city.city_pref_id')
+        ->join(DB::Raw("({$towns->toSql()}) as town"), 'city.city_id', '=', 'town.town_city_id')
+        ->whereIn('area_id', $select_area_group[(integer) $area_group_id])
       ;
       // dd(compact(['towns']));
 
