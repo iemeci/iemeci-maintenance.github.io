@@ -50,31 +50,31 @@
           <div class="c-home-area-col3-list-wrap">
           <ul class="c-home-area-col3-list c-home-area-col3-list__with-photo">
             <li class="c-home-area-col3-item">
-              <a href="{{ route('m_pref.index', ["pref_id" => '13']) }}" class="c-home-area-col3-link">
+              <a href="{{ route('m_area.index', ["area_id" => '03']) }}" class="c-home-area-col3-link">
                 <div class="c-home-area-col3-pict"><img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/area_photo_tokyo.jpg') : asset('/img/area_photo_tokyo.jpg')}}" alt=""></div>
-                <div class="c-home-area-col3-text">東京都</div>
+                <div class="c-home-area-col3-text">関東</div>
               </a>
             </li>
             <li class="c-home-area-col3-item">
-              <a href="{{ route('m_pref.index', ["pref_id" => '14']) }}" class="c-home-area-col3-link">
-                <div class="c-home-area-col3-pict"><img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/area_photo_kanagawa.jpg') : asset('/img/area_photo_kanagawa.jpg') }}" alt=""></div>
-                <div class="c-home-area-col3-text">神奈川県</div>
+              <a href="{{ route('m_area.index', ["area_id" => '05']) }}" class="c-home-area-col3-link">
+                <div class="c-home-area-col3-pict"><img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/area_photo_osaka.jpg') : asset('/img/area_photo_osaka.jpg') }}" alt=""></div>
+                <div class="c-home-area-col3-text">近畿</div>
               </a>
             </li>
             <li class="c-home-area-col3-item">
-              <a href="{{ route('m_pref.index', ["pref_id" => '12']) }}" class="c-home-area-col3-link">
-                <div class="c-home-area-col3-pict"><img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/area_photo_chiba.jpg') : asset('/img/area_photo_chiba.jpg') }}" alt=""></div>
-                <div class="c-home-area-col3-text">千葉県</div>
+              <a href="{{ route('m_area.index', ["area_id" => '04']) }}" class="c-home-area-col3-link">
+                <div class="c-home-area-col3-pict"><img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/area_photo_nagoya.jpg') : asset('/img/area_photo_nagoya.jpg') }}" alt=""></div>
+                <div class="c-home-area-col3-text">中部・東海</div>
               </a>
             </li>
           </ul>
           </div>
           <div class="c-home-area-col3-list-wrap">
           <ul class="c-home-area-col3-list">
-            <li class="c-home-area-col3-item"><a href="{{ route('m_pref.index', ["pref_id" => '11']) }}" class="c-home-area-col3-link"><div class="c-home-area-col3-text">埼玉県</div></a></li>
-            <li class="c-home-area-col3-item"><a href="{{ route('m_pref.index', ["pref_id" => '09']) }}" class="c-home-area-col3-link"><div class="c-home-area-col3-text">栃木県</div></a></li>
-            <li class="c-home-area-col3-item"><a href="{{ route('m_pref.index', ["pref_id" => '10']) }}" class="c-home-area-col3-link"><div class="c-home-area-col3-text">群馬県</div></a></li>
-            <li class="c-home-area-col3-item"><a href="{{ route('m_pref.index', ["pref_id" => '08']) }}" class="c-home-area-col3-link"><div class="c-home-area-col3-text">茨城県</div></a></li>
+            <li class="c-home-area-col3-item"><a href="{{ route('m_area.index', ["area_id" => '01']) }}" class="c-home-area-col3-link"><div class="c-home-area-col3-text">北海道</div></a></li>
+            <li class="c-home-area-col3-item"><a href="{{ route('m_area.index', ["area_id" => '02']) }}" class="c-home-area-col3-link"><div class="c-home-area-col3-text">東北</div></a></li>
+            <li class="c-home-area-col3-item"><a href="{{ route('m_area.index', ["area_id" => '06']) }}" class="c-home-area-col3-link"><div class="c-home-area-col3-text">中国・四国</div></a></li>
+            <li class="c-home-area-col3-item"><a href="{{ route('m_area.index', ["area_id" => '07']) }}" class="c-home-area-col3-link"><div class="c-home-area-col3-text">九州・沖縄</div></a></li>
           </ul>
           </div>
         </div>
