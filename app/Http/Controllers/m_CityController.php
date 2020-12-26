@@ -43,13 +43,14 @@ class m_CityController extends Controller
 //    dd(compact(['other_areas']));
 
     $kanas = DB::table('m_kanas')
-      ->select('m_kana_groups.kana_group_name')
+      ->select('m_kana_groups.kana_group_id', 'm_kana_groups.kana_group_name')
       ->join('m_kana_groups', 'm_kanas.kana_group_id', '=', 'm_kana_groups.kana_group_id')
 //            ->leftJoin( DB::raw('('. $pref_cities_kanas->toSql(). ') as pref_kanas'), 'm_kanas.kana_name', '=', 'pref_kanas.first_kana')
       ->leftJoin(DB::raw('(select distinct left(city_kana, 1) as first_kana from m_cities where city_pref_id = \'' . $pref_id . '\') as pref_kanas'), 'm_kanas.kana_name', '=', 'pref_kanas.first_kana')
       ->whereNotNull('pref_kanas.first_kana')
-      ->groupby('m_kana_groups.kana_group_name')
+      ->groupby('m_kana_groups.kana_group_id', 'm_kana_groups.kana_group_name')
       ->orderBy('m_kana_groups.kana_group_id')
+      ->orderBy('m_kana_groups.kana_group_name')
       ->get();
 
 //        dd(compact(['kanas']));
