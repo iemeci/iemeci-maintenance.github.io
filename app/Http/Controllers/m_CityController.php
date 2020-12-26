@@ -49,6 +49,7 @@ class m_CityController extends Controller
       ->leftJoin(DB::raw('(select distinct left(city_kana, 1) as first_kana from m_cities where city_pref_id = \'' . $pref_id . '\') as pref_kanas'), 'm_kanas.kana_name', '=', 'pref_kanas.first_kana')
       ->whereNotNull('pref_kanas.first_kana')
       ->groupby('m_kana_groups.kana_group_name')
+      ->orderBy('m_kana_groups.kana_group_id')
       ->get();
 
 //        dd(compact(['kanas']));
