@@ -47,5 +47,12 @@
       <jdbc-url>jdbc:postgresql://ec2-3-220-98-137.compute-1.amazonaws.com:5432/d899ds5evgg43v</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="heroku_prod_psql" uuid="bb6ecc4e-0c54-478b-98f4-cab0708c0a65">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ec2-54-196-89-124.compute-1.amazonaws.com:5432/d8r95k7q8d3fdc</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

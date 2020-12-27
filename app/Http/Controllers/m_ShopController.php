@@ -92,6 +92,7 @@ class m_ShopController extends Controller
                 ", [$lat, $lng, $lat])
       ->whereRaw('(shop_url_d_delivery is not null  or shop_url_rakuten_delivery is not null or shop_url_uber_eats is not null or shop_url_demaekan is not null) and ' .
         $shop_distance . '< ' . $range, [$lat, $lng, $lat])
+      ->orderByRaw('shop_score desc is null')
       ->orderByRaw('shop_score desc ,' . $shop_distance, [$lat, $lng, $lat])
       ->paginate(10);
 //        dd(compact('shops'));
