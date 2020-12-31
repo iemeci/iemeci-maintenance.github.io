@@ -1,9 +1,7 @@
 // require('./bootstrap');
 import get_location from "./get_location";
-import ga from "./ga"
 import area_accordion from "./area_accordion";
 
-ga();
 area_accordion();
 
 const btn = document.querySelector('.js-submit-location');
