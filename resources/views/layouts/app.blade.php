@@ -17,6 +17,13 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
   @endif
   <head prefix="og: http://ogp.me/ns#">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-ML5C8CG');</script>
+    <!-- End Google Tag Manager -->
     @yield('meta')
     <link rel="icon alternate" href="/favicon.ico"/>
     @if(app('env') == 'production' || app('env') == 'staging')
@@ -30,6 +37,9 @@
     @endif
   </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ML5C8CG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <div class="l-page">
   <header class="l-header">
     <div class="l-header_inner">
