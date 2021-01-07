@@ -22,6 +22,8 @@ class SitemapController extends Controller
       $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 0]));
       $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 1]));
       $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 2]));
+      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 3]));
+      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 4]));
       $sitemap->addSitemap(route('sitemap-hokkaido'));
       $sitemap->addSitemap(route('sitemap-tohoku'));
       $sitemap->addSitemap(route('sitemap-kanto'));
@@ -93,13 +95,15 @@ class SitemapController extends Controller
 
   public function towns($area_group_id) {
     $select_area_group = [
-      ['01', '02', '03']
+      ['01', '02']
+      ,['03']
       ,['04']
-      ,['05', '06', '07']
+      ,['05', '06']
+      ,['07']
     ];
 
     $sitemap = \App::make("sitemap");
-    $sitemap->setCache('laravel.sitemap-index', 1440);
+    $sitemap->setCache('laravel.sitemap-towns-' . $area_group_id, 1440);
     if (!$sitemap->isCached()) {
       $prefs = DB::table('m_prefs')
         ->select('pref_id', 'pref_area_id')
@@ -139,12 +143,12 @@ class SitemapController extends Controller
   public function streets_hokkaido() {
     $sitemap = \App::make("sitemap");
     // キャッシュの設定。単位は分
-    $sitemap->setCache('laravel.sitemap-index', 1440);
+    $sitemap->setCache('laravel.sitemap-streets-hokkaido', 1440);
     if (!$sitemap->isCached()) {
       // sitemapのURLを追加
       $areas = DB::table('m_areas')
         ->select('area_id')
-        ->where('area_id', '=', '03')
+        ->where('area_id', '=', '01')
       ;
 
       $streets = DB::table(DB::raw("({$areas->toSql()}) as areas"))
@@ -173,12 +177,12 @@ class SitemapController extends Controller
   public function streets_tohoku() {
     $sitemap = \App::make("sitemap");
     // キャッシュの設定。単位は分
-    $sitemap->setCache('laravel.sitemap-index', 1440);
+    $sitemap->setCache('laravel.sitemap-streets-tohoku', 1440);
     if (!$sitemap->isCached()) {
       // sitemapのURLを追加
       $areas = DB::table('m_areas')
         ->select('area_id')
-        ->where('area_id', '=', '03')
+        ->where('area_id', '=', '02')
       ;
 
       $streets = DB::table(DB::raw("({$areas->toSql()}) as areas"))
@@ -207,7 +211,7 @@ class SitemapController extends Controller
   public function streets_kanto() {
     $sitemap = \App::make("sitemap");
     // キャッシュの設定。単位は分
-    $sitemap->setCache('laravel.sitemap-index', 1440);
+    $sitemap->setCache('laravel.sitemap-streets-kanto', 1440);
     if (!$sitemap->isCached()) {
       // sitemapのURLを追加
       $areas = DB::table('m_areas')
@@ -241,12 +245,12 @@ class SitemapController extends Controller
   public function streets_chubu() {
     $sitemap = \App::make("sitemap");
     // キャッシュの設定。単位は分
-    $sitemap->setCache('laravel.sitemap-index', 1440);
+    $sitemap->setCache('laravel.sitemap-streets-chubu', 1440);
     if (!$sitemap->isCached()) {
       // sitemapのURLを追加
       $areas = DB::table('m_areas')
         ->select('area_id')
-        ->where('area_id', '=', '03')
+        ->where('area_id', '=', '04')
       ;
 
       $streets = DB::table(DB::raw("({$areas->toSql()}) as areas"))
@@ -275,12 +279,12 @@ class SitemapController extends Controller
   public function streets_kinki() {
     $sitemap = \App::make("sitemap");
     // キャッシュの設定。単位は分
-    $sitemap->setCache('laravel.sitemap-index', 1440);
+    $sitemap->setCache('laravel.sitemap-streets-kinki', 1440);
     if (!$sitemap->isCached()) {
       // sitemapのURLを追加
       $areas = DB::table('m_areas')
         ->select('area_id')
-        ->where('area_id', '=', '03')
+        ->where('area_id', '=', '05')
       ;
 
       $streets = DB::table(DB::raw("({$areas->toSql()}) as areas"))
@@ -309,12 +313,12 @@ class SitemapController extends Controller
   public function streets_chugoku() {
     $sitemap = \App::make("sitemap");
     // キャッシュの設定。単位は分
-    $sitemap->setCache('laravel.sitemap-index', 1440);
+    $sitemap->setCache('laravel.sitemap-streets-chugoku', 1440);
     if (!$sitemap->isCached()) {
       // sitemapのURLを追加
       $areas = DB::table('m_areas')
         ->select('area_id')
-        ->where('area_id', '=', '03')
+        ->where('area_id', '=', '06')
       ;
 
       $streets = DB::table(DB::raw("({$areas->toSql()}) as areas"))
@@ -343,12 +347,12 @@ class SitemapController extends Controller
   public function streets_kyushu() {
     $sitemap = \App::make("sitemap");
     // キャッシュの設定。単位は分
-    $sitemap->setCache('laravel.sitemap-index', 1440);
+    $sitemap->setCache('laravel.sitemap-streets-kyushu', 1440);
     if (!$sitemap->isCached()) {
       // sitemapのURLを追加
       $areas = DB::table('m_areas')
         ->select('area_id')
-        ->where('area_id', '=', '03')
+        ->where('area_id', '=', '07')
       ;
 
       $streets = DB::table(DB::raw("({$areas->toSql()}) as areas"))
