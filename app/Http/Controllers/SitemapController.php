@@ -98,7 +98,8 @@ class SitemapController extends Controller
       ['01', '02']
       ,['03']
       ,['04']
-      ,['05', '06']
+      ,['05']
+      ,['06']
       ,['07']
     ];
 
