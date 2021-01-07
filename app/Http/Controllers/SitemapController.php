@@ -24,6 +24,7 @@ class SitemapController extends Controller
       $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 2]));
       $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 3]));
       $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 4]));
+      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 5]));
       $sitemap->addSitemap(route('sitemap-hokkaido'));
       $sitemap->addSitemap(route('sitemap-tohoku'));
       $sitemap->addSitemap(route('sitemap-kanto'));
