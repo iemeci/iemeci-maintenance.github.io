@@ -19,12 +19,13 @@ class SitemapController extends Controller
     if (!$sitemap->isCached()) {
       // sitemapのURLを追加
       $sitemap->addSitemap(route('sitemap-area_prefs'));
-      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 0]));
-      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 1]));
-      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 2]));
-      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 3]));
-      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 4]));
-      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => 5]));
+      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => '01']));
+      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => '02']));
+      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => '03']));
+      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => '04']));
+      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => '05']));
+      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => '06']));
+      $sitemap->addSitemap(route('sitemap-towns', ['area_group_id' => '07']));
       $sitemap->addSitemap(route('sitemap-hokkaido'));
       $sitemap->addSitemap(route('sitemap-tohoku'));
       $sitemap->addSitemap(route('sitemap-kanto'));
@@ -95,14 +96,6 @@ class SitemapController extends Controller
   }
 
   public function towns($area_group_id) {
-    $select_area_group = [
-      ['01', '02']
-      ,['03']
-      ,['04']
-      ,['05']
-      ,['06']
-      ,['07']
-    ];
 
     $sitemap = \App::make("sitemap");
     $sitemap->setCache('laravel.sitemap-towns-' . $area_group_id, 1440);
@@ -121,12 +114,16 @@ class SitemapController extends Controller
         ->select('town_id', 'town_city_id')
       ;
 
-      $towns = DB::table('m_areas')
+      $areas = DB::table('m_areas')
+        ->where('area_id', "=", '?')
+      ;
+
+      $towns = DB::table(DB::raw("({$areas->toSql()}) as areas"))
         ->select('town_id')
-        ->join(DB::RAW("({$prefs->toSql()}) as pref"), 'm_areas.area_id', '=', 'pref.pref_area_id')
+        ->join(DB::RAW("({$prefs->toSql()}) as pref"), 'areas.area_id', '=', 'pref.pref_area_id')
         ->join(DB::Raw("({$cities->toSql()}) as city"), 'pref.pref_id', '=', 'city.city_pref_id')
         ->join(DB::Raw("({$towns->toSql()}) as town"), 'city.city_id', '=', 'town.town_city_id')
-        ->whereIn('area_id', $select_area_group[(integer) $area_group_id])
+        ->setBindings([$area_group_id])
       ;
       // dd(compact(['towns']));
 
