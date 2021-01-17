@@ -61,6 +61,28 @@
                 </div>
                 @if($shops->total())
                     <div class="c-location-suggestion"><a href="https://forms.gle/vEtrG3QMQ1LwXFnz6" target="_blank">リンクの修正を提案</a></div>
+                    <div class="c-location-app-download">
+                      <div class="c-location-app-download_left">
+                        <img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/cpn01_logo_menu.png') : asset('/img/cpn01_logo_menu.png') }}" alt="" width="64" height="64">
+                      </div>
+                      <div class="c-location-app-download_center">
+                        <div class="c-location-app-download_title"><em>menu</em>近日対応予定に先駆け</div>
+                        <div class="c-location-app-download_subtitle">いえメシ限定</div>
+                        <div class="c-location-app-download_coupon">初回1500円分クーポン <span>36801</span></div>
+                      </div>
+                      <div class="c-location-app-download_right">
+                        <ul class="c-location-app-download_links">
+                          <li class="c-location-app-download_link-item"><a href="https://h.accesstrade.net/sp/cc?rk=0100o02u00kg6j" rel="nofollow"><img
+                                src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/cpn01_btn_app_store.png') : asset('/img/cpn01_btn_app_store.png') }}"
+                                alt="" width="98" height="34"><img src="https://h.accesstrade.net/sp/rr?rk=0100o02u00kg6j" width="1" height="1"
+                                            border="0" alt=""/></a></li>
+                          <li class="c-location-app-download_link-item"><a href="https://h.accesstrade.net/sp/cc?rk=0100o02t00kg6j" rel="nofollow"><img
+                                src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/cpn01_btn_google_play.png') : asset('/img/cpn01_btn_google_play.png') }}"
+                                alt="" width="98" height="34"><img src="https://h.accesstrade.net/sp/rr?rk=0100o02t00kg6j" width="1" height="1"
+                                            border="0" alt=""/></a></li>
+                        </ul>
+                      </div>
+                    </div>
                     <div class="c-shop">
                         <ul class="c-shop-list">
                             @foreach($shops as $shop)
