@@ -98,7 +98,7 @@ class SitemapController extends Controller
   public function towns($area_group_id) {
 
     $sitemap = \App::make("sitemap");
-    $sitemap->setCache('laravel.sitemap-towns-' . $area_group_id, 1440);
+    $sitemap->setCache('laravel.sitemap-towns-' . $area_group_id, 43200);
     if (!$sitemap->isCached()) {
       $prefs = DB::table('m_prefs')
         ->select('pref_id', 'pref_area_id')
