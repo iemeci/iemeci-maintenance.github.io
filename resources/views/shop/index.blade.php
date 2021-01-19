@@ -129,7 +129,7 @@
                                                 </div>
                                             @endif
                                             <div class="c-shop-enable">
-                                                @if ( $shop->shop_url_d_delivery || $shop->shop_url_rakuten_delivery || $shop->shop_url_uber_eats || $shop->shop_url_demaekan )
+                                                @if ( $shop->shop_url_d_delivery || $shop->shop_url_rakuten_delivery || $shop->shop_url_uber_eats || $shop->shop_url_demaekan || $shop->shop_id_menu || $shop->shop_id_wolt || $shop->shop_id_foodpanda || $shop->shop_id_foodneko )
                                                     <ul class="c-shop-enable_list">
                                                         @if ( $shop->shop_url_uber_eats )
                                                             <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__uber-eats" href="{{ 'https://www.ubereats.com' . $shop->shop_url_uber_eats }}" rel="nofollow">Uber <span>Eats</span></a></li>
@@ -147,13 +147,13 @@
                                                             <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__menu" href="https://me.nu/s{{ $shop->shop_id_menu }}">menu</a></li>
                                                         @endif
                                                         @if ( $shop->shop_id_wolt )
-                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__wolt" href="#">wolt</a></li>
+                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__wolt" href="#">Wolt</a></li>
                                                         @endif
                                                         @if ( $shop->shop_id_foodpanda )
                                                             <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__foodpand" href="#">foodpanda</a></li>
                                                         @endif
                                                         @if ( $shop->shop_id_foodneko )
-                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__foodneko" href="">foddneko</a></li>
+                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__foodneko" href="">foodneko</a></li>
                                                         @endif
                                                     </ul>
                                                 @endif

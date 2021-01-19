@@ -43,6 +43,7 @@ class CreateShopsTable extends Migration
             $table->index('shop_url_uber_eats');
             $table->index('shop_url_demaekan');
             $table->index('shop_url_rakuten_delivery');
+            $table->index('shop_url_d_delivery');
             $table->index('shop_id_menu');
             $table->index('shop_id_wolt');
             $table->index('shop_id_foodpanda');
