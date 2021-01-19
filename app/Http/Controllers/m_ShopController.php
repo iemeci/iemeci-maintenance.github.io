@@ -81,16 +81,28 @@ class m_ShopController extends Controller
                 shop_url_demaekan,
                 shop_url_d_delivery,
                 shop_url_rakuten_delivery,
+                shop_id_menu,
+                shop_id_wolt,
+                shop_id_foodpanda,
+                shop_id_foodneko,
                 shop_address,
                 shop_address_lat,
                 shop_address_lng,
                 created_at,
                 updated_at,
                 deleted_at," .
-        $shop_distance . "
+                $shop_distance . "
                  as distance
                 ", [$lat, $lng, $lat])
-      ->whereRaw('(shop_url_d_delivery is not null  or shop_url_rakuten_delivery is not null or shop_url_uber_eats is not null or shop_url_demaekan is not null) and ' .
+      ->whereRaw('(shop_url_d_delivery is not null or
+                          shop_url_rakuten_delivery is not null or
+                          shop_url_uber_eats is not null or
+                          shop_url_demaekan is not null or
+                          shop_id_menu is not null or
+                          shop_id_wolt is not null or
+                          shop_id_foodpanda is not null
+                          or shop_id_foodneko is not null
+                          ) and ' .
         $shop_distance . '< ' . $range, [$lat, $lng, $lat])
       ->orderByRaw('shop_score is null')
       ->orderByRaw('shop_score desc ,' . $shop_distance, [$lat, $lng, $lat])
