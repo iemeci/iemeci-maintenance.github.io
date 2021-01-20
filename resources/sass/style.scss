@@ -283,6 +283,22 @@
           }
         }
       }
+      &__menu {
+        border: 1px solid #E71E0A;
+        color: #E71E0A;
+      }
+      &__wolt {
+        background-color: #00C4EC;
+        border: 1px solid #00C4EC;
+      }
+      &__chompy {
+        background-color: #FF8080;
+        border: 1px solid #FF8080;
+      }
+      &__foodpanda {
+        background-color: #D00F61;
+        border: 1px solid #D00F30;
+      }
     }
   }
   &-empty {

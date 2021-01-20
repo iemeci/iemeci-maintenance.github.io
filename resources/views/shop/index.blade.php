@@ -129,7 +129,7 @@
                                                 </div>
                                             @endif
                                             <div class="c-shop-enable">
-                                                @if ( $shop->shop_url_d_delivery || $shop->shop_url_rakuten_delivery || $shop->shop_url_uber_eats || $shop->shop_url_demaekan )
+                                                @if ( $shop->shop_url_d_delivery || $shop->shop_url_rakuten_delivery || $shop->shop_url_uber_eats || $shop->shop_url_demaekan || $shop->shop_id_menu || $shop->shop_id_wolt || $shop->shop_id_foodpanda || $shop->shop_id_foodneko )
                                                     <ul class="c-shop-enable_list">
                                                         @if ( $shop->shop_url_uber_eats )
                                                             <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__uber-eats" href="{{ 'https://www.ubereats.com' . $shop->shop_url_uber_eats }}" rel="nofollow">Uber <span>Eats</span></a></li>
@@ -138,23 +138,22 @@
                                                             <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__demaekan" href="{{ 'https://demae-can.com' . $shop->shop_url_demaekan }}" rel="nofollow">出前館</a></li>
                                                         @endif
                                                         @if ( $shop->shop_url_d_delivery )
-                                                            <li class="c-shop-enable_item"><a
-                                                                    class="c-shop-enable_link c-shop-enable_link__d-delivery"
-                                                                    href="https://px.a8.net/svt/ejp?a8mat=3BG3ZA+XXR16+3CLO+BW8O2&a8ejpredirect={{ urlencode('https://delivery.dmkt-sp.jp' . $shop->shop_url_d_delivery) }}"
-                                                                    rel="nofollow">ｄデリバリー</a>
-                                                                <img border="0" width="1" height="1"
-                                                                     src="https://www11.a8.net/0.gif?a8mat=3BG3ZA+XXR16+3CLO+BW8O2"
-                                                                     alt="">
-                                                            </li>
+                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__d-delivery" href="https://px.a8.net/svt/ejp?a8mat=3BG3ZA+XXR16+3CLO+BW8O2&a8ejpredirect={{ urlencode('https://delivery.dmkt-sp.jp' . $shop->shop_url_d_delivery) }}" rel="nofollow">ｄデリバリー</a><img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=3BG3ZA+XXR16+3CLO+BW8O2" alt=""></li>
                                                         @endif
                                                         @if ( $shop->shop_url_rakuten_delivery )
-                                                            <li class="c-shop-enable_item"><a
-                                                                    class="c-shop-enable_link c-shop-enable_link__r-delivery"
-                                                                    href="https://px.a8.net/svt/ejp?a8mat=3BG3ZA+XXR16+3CLO+BW8O2&a8ejpredirect={{ urlencode('https://delivery.rakuten.co.jp' . $shop->shop_url_rakuten_delivery) }}"><span>Ｒ</span>デリバリー</a>
-                                                                <img border="0" width="1" height="1"
-                                                                     src="https://www16.a8.net/0.gif?a8mat=2NQTU1+2MNYQI+2HOM+BW8O1"
-                                                                     alt="">
-                                                            </li>
+                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__r-delivery" href="https://px.a8.net/svt/ejp?a8mat=3BG3ZA+XXR16+3CLO+BW8O2&a8ejpredirect={{ urlencode('https://delivery.rakuten.co.jp' . $shop->shop_url_rakuten_delivery) }}"><span>Ｒ</span>デリバリー</a><img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=2NQTU1+2MNYQI+2HOM+BW8O1" alt=""></li>
+                                                        @endif
+                                                        @if ( $shop->shop_id_menu )
+                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__menu" href="https://me.nu/s{{ $shop->shop_id_menu }}">menu</a></li>
+                                                        @endif
+                                                        @if ( $shop->shop_id_wolt )
+                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__wolt" href="https://wolt.com{{ $shop->shop_id_wolt }}">Wolt</a></li>
+                                                        @endif
+                                                        @if ( $shop->shop_id_foodpanda )
+                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__foodpanda" href="#">foodpanda</a></li>
+                                                        @endif
+                                                        @if ( $shop->shop_id_foodneko )
+                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__foodneko" href="">foodneko</a></li>
                                                         @endif
                                                     </ul>
                                                 @endif

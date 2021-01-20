@@ -23,16 +23,31 @@ class CreateShopsTable extends Migration
             $table->float('shop_score', 3, 2)->comment('店舗スコア')->nullable();
             $table->text('shop_thumbnail_url')->comment('店舗サムネイルURL')->nullable();
             $table->text('shop_url_tabelog')->comment('店舗食べログURL');
-            $table->text('shop_url_uber_eats')->comment('店舗UberEats URL')->nullable();
-            $table->text('shop_url_demaekan')->comment('店舗出前館 URL')->nullable();
-            $table->text('shop_url_d_delivery')->comment('店舗dデリバリー URL')->nullable();
-            $table->text('shop_url_rakuten_delivery')->comment('店舗楽天デリバリー URL')->nullable();
+            $table->string('shop_url_uber_eats', 500)->comment('店舗UberEats URL')->nullable();
+            $table->string('shop_url_demaekan', 30)->comment('店舗出前館 URL')->nullable();
+            $table->string('shop_url_d_delivery', 30)->comment('店舗dデリバリー URL')->nullable();
+            $table->string('shop_url_rakuten_delivery', 30)->comment('店舗楽天デリバリー URL')->nullable();
+            $table->string('shop_id_menu', 12)->comment('Menu 店舗ID')->nullable();
+            $table->string('shop_id_wolt', 200)->comment('Wolt 店舗ID')->nullable();
+            $table->string('shop_id_foodpanda', 12)->comment('Foodpanda 店舗ID')->nullable();
+            $table->string('shop_id_foodneko', 12)->comment('Foodneko 店舗ID')->nullable();
             $table->text('shop_address')->comment('店舗住所')->nullable();
             $table->double('shop_address_lat', 10, 7)->comment('店舗緯度')->index()->nullable();
             $table->double('shop_address_lng', 10, 7)->comment('店舗軽度')->index()->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
             $table->softDeletes();
+        });
+
+        Schema::table('m_shops', function (Blueprint $table) {
+            $table->index('shop_url_uber_eats');
+            $table->index('shop_url_demaekan');
+            $table->index('shop_url_rakuten_delivery');
+            $table->index('shop_url_d_delivery');
+            $table->index('shop_id_menu');
+            $table->index('shop_id_wolt');
+            $table->index('shop_id_foodpanda');
+            $table->index('shop_id_foodneko');
         });
 
         Schema::create('m_areas', function (Blueprint $table) {
