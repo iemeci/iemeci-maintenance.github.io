@@ -150,7 +150,7 @@
                                                             <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__wolt" href="#">Wolt</a></li>
                                                         @endif
                                                         @if ( $shop->shop_id_foodpanda )
-                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__foodpand" href="#">foodpanda</a></li>
+                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__foodpanda" href="#">foodpanda</a></li>
                                                         @endif
                                                         @if ( $shop->shop_id_foodneko )
                                                             <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__foodneko" href="">foodneko</a></li>
