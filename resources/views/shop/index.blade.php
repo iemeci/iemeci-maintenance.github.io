@@ -147,7 +147,7 @@
                                                             <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__menu" href="https://me.nu/s{{ $shop->shop_id_menu }}">menu</a></li>
                                                         @endif
                                                         @if ( $shop->shop_id_wolt )
-                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__wolt" href="#">Wolt</a></li>
+                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__wolt" href="https://wolt.com{{ $shop->shop_id_wolt }}">Wolt</a></li>
                                                         @endif
                                                         @if ( $shop->shop_id_foodpanda )
                                                             <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__foodpanda" href="#">foodpanda</a></li>
