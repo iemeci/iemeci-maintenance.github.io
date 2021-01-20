@@ -66,7 +66,7 @@
                         <img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/cpn01_logo_menu.png') : asset('/img/cpn01_logo_menu.png') }}" alt="" width="64" height="64">
                       </div>
                       <div class="c-location-app-download_center">
-                        <div class="c-location-app-download_title"><em>menu</em>近日対応予定に先駆け</div>
+                        <div class="c-location-app-download_title">アプリDLでクーポンGET</div>
                         <div class="c-location-app-download_subtitle">いえメシ限定</div>
                         <div class="c-location-app-download_coupon">初回1500円分クーポン <span>36801</span></div>
                       </div>
@@ -144,7 +144,7 @@
                                                             <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__r-delivery" href="https://px.a8.net/svt/ejp?a8mat=3BG3ZA+XXR16+3CLO+BW8O2&a8ejpredirect={{ urlencode('https://delivery.rakuten.co.jp' . $shop->shop_url_rakuten_delivery) }}"><span>Ｒ</span>デリバリー</a><img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=2NQTU1+2MNYQI+2HOM+BW8O1" alt=""></li>
                                                         @endif
                                                         @if ( $shop->shop_id_menu )
-                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__menu" href="https://me.nu/s{{ $shop->shop_id_menu }}">menu</a></li>
+                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__menu c-shop-enable_link__menu__sp" href="https://me.nu/s{{ $shop->shop_id_menu }}">menu</a><a class="c-shop-enable_link c-shop-enable_link__menu c-shop-enable_link__menu__pc" href="https://menu.jp/s{{ $shop->shop_id_menu }}">menu</a></li>
                                                         @endif
                                                         @if ( $shop->shop_id_wolt )
                                                             <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__wolt" href="https://wolt.com{{ $shop->shop_id_wolt }}">Wolt</a></li>

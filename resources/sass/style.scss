@@ -286,6 +286,17 @@
       &__menu {
         border: 1px solid #E71E0A;
         color: #E71E0A;
+        &__sp {
+          @include mq(medium) {
+            display: none;
+          }
+        }
+        &__pc {
+          display: none;
+          @include mq(medium) {
+            display: block;
+          }
+        }
       }
       &__wolt {
         background-color: #00C4EC;
