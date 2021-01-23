@@ -40,7 +40,7 @@
             <div class="c-catch-search-area">
               <h2 class="c-catch-search-area-title">対応サービス</h2>
               <p class="c-catch-search-area-body">
-                <img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/available.png') : asset('/img/available.png')}}" alt="Uber Eats、ｄデリバリー、出前館、楽天デリバリー、menu、Wolt、foodpanda" width="263" height="57">
+                <img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/available.png') : asset('/img/available.png')}}" alt="Uber Eats、ｄデリバリー、出前館、楽天デリバリー、menu、Wolt、foodpanda" width="263" height="89">
               </p>
             </div>
           </div>
