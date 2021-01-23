@@ -9,17 +9,17 @@
 @endsection
 
 @section('meta')
-  <meta name="description" content="【{{ config('app.name') }}】出前・デリバリー・宅配を一括検索できる宅配比較サイト。主要宅配サービスの美味しい飲食店を簡単に比較・検索できます。宅配サイトで直接予約できるため手数料無料です。取扱サービスは、Uber Eats（ウーバーイーツ）,ｄデリバリー,楽天デリバリー。">
+  <meta name="description" content="【{{ config('app.name') }}】出前・デリバリー・宅配を一括検索できる宅配比較サイト。主要宅配サービスの美味しい飲食店を簡単に比較・検索できます。宅配サイトで直接予約できるため手数料無料です。取扱サービスは、Uber Eats, 出前館, ｄデリバリー, 楽天デリバリー, menu, Wolt, foodpanda。">
   <meta property="og:title" content="【{{ config('app.name') }}】出前・デリバリー・宅配一括比較サイト">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ route('home') }}">
   <meta property="og:image" content="{{ secure_asset('/img/app-icon/ogp-image.png')  }}">
   <meta property="og:site_name" content="{{ config('app.name') }}{{ config('app.name_description') }}。">
-  <meta property="og:description" content="【{{ config('app.name') }}】出前・デリバリー・宅配を一括検索できる宅配比較サイト。主要宅配サービスの美味しい飲食店を簡単に比較・検索できます。宅配サイトで直接予約できるため手数料無料です。取扱サービスは、Uber Eats（ウーバーイーツ）,ｄデリバリー,楽天デリバリー。">
+  <meta property="og:description" content="【{{ config('app.name') }}】出前・デリバリー・宅配を一括検索できる宅配比較サイト。主要宅配サービスの美味しい飲食店を簡単に比較・検索できます。宅配サイトで直接予約できるため手数料無料です。取扱サービスは、Uber Eats, 出前館, ｄデリバリー, 楽天デリバリー, menu, Wolt, foodpanda。">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="iemeci">
   <meta name="twitter:title" content="【{{ config('app.name') }}】出前・デリバリー・宅配一括比較サイト">
-  <meta name="twitter:description" content="【{{ config('app.name') }}】出前・デリバリー・宅配を一括検索できる宅配比較サイト。主要宅配サービスの美味しい飲食店を簡単に比較・検索できます。宅配サイトで直接予約できるため手数料無料です。取扱サービスは、Uber Eats（ウーバーイーツ）,ｄデリバリー,楽天デリバリー。">
+  <meta name="twitter:description" content="【{{ config('app.name') }}】出前・デリバリー・宅配を一括検索できる宅配比較サイト。主要宅配サービスの美味しい飲食店を簡単に比較・検索できます。宅配サイトで直接予約できるため手数料無料です。取扱サービスは、Uber Eats, 出前館, ｄデリバリー, 楽天デリバリー, menu, Wolt, foodpanda。">
   <meta name="twitter:image" content="{{ secure_asset('/img/app-icon/ogp-image.png')  }}">
 @endsection
 
@@ -40,7 +40,7 @@
             <div class="c-catch-search-area">
               <h2 class="c-catch-search-area-title">対応サービス</h2>
               <p class="c-catch-search-area-body">
-                <img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/available.png') : asset('/img/available.png')}}" alt="Uber Eats、ｄデリバリー、出前館、楽天デリバリー、menu" width="263" height="57">
+                <img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/available.png') : asset('/img/available.png')}}" alt="Uber Eats、ｄデリバリー、出前館、楽天デリバリー、menu、Wolt、foodpanda" width="263" height="57">
               </p>
             </div>
           </div>
