@@ -29,7 +29,7 @@ class CreateShopsTable extends Migration
             $table->string('shop_url_rakuten_delivery', 30)->comment('店舗楽天デリバリー URL')->nullable();
             $table->string('shop_id_menu', 12)->comment('Menu 店舗ID')->nullable();
             $table->string('shop_id_wolt', 200)->comment('Wolt 店舗ID')->nullable();
-            $table->string('shop_id_foodpanda', 12)->comment('Foodpanda 店舗ID')->nullable();
+            $table->string('shop_id_foodpanda', 200)->comment('Foodpanda 店舗ID')->nullable();
             $table->string('shop_id_foodneko', 12)->comment('Foodneko 店舗ID')->nullable();
             $table->text('shop_address')->comment('店舗住所')->nullable();
             $table->double('shop_address_lat', 10, 7)->comment('店舗緯度')->index()->nullable();
