@@ -65,22 +65,21 @@
                       <div class="c-location-app-download_left">
                         <img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/cpn01_logo_menu.png') : asset('/img/cpn01_logo_menu.png') }}" alt="" width="64" height="64">
                       </div>
-                      <div class="c-location-app-download_center">
-                        <div class="c-location-app-download_title">アプリDLでクーポンGET</div>
-                        <div class="c-location-app-download_subtitle">いえメシ限定</div>
-                        <div class="c-location-app-download_coupon">初回1500円分クーポン <span>36801</span></div>
-                      </div>
                       <div class="c-location-app-download_right">
-                        <ul class="c-location-app-download_links">
-                          <li class="c-location-app-download_link-item"><a href="https://h.accesstrade.net/sp/cc?rk=0100o02u00kg6j" rel="nofollow"><img
-                                src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/cpn01_btn_app_store.png') : asset('/img/cpn01_btn_app_store.png') }}"
-                                alt="" width="98" height="34"><img src="https://h.accesstrade.net/sp/rr?rk=0100o02u00kg6j" width="1" height="1"
-                                            border="0" alt=""/></a></li>
-                          <li class="c-location-app-download_link-item"><a href="https://h.accesstrade.net/sp/cc?rk=0100o02t00kg6j" rel="nofollow"><img
-                                src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/cpn01_btn_google_play.png') : asset('/img/cpn01_btn_google_play.png') }}"
-                                alt="" width="98" height="34"><img src="https://h.accesstrade.net/sp/rr?rk=0100o02t00kg6j" width="1" height="1"
-                                            border="0" alt=""/></a></li>
-                        </ul>
+                        <div class="c-location-app-download_title"><em>menu</em> : 初回1500円クーポン</div>
+                        <div class="c-location-app-download_coupon">下のボタンからアプリをダウンロードし、クーポンコード<span>36801</span>を入力すると、デリバリーで使える750円OFFクーポンが2枚もらえます。</div>
+                        <div class="c-location-app-download_coupon_buttons">
+                          <ul class="c-location-app-download_links">
+                            <li class="c-location-app-download_link-item"><a href="https://h.accesstrade.net/sp/cc?rk=0100o02u00kg6j" rel="nofollow"><img
+                                  src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/cpn01_btn_app_store.png') : asset('/img/cpn01_btn_app_store.png') }}"
+                                  alt="" width="128" height="48"><img src="https://h.accesstrade.net/sp/rr?rk=0100o02u00kg6j" width="1" height="1"
+                                              border="0" alt=""/></a></li>
+                            <li class="c-location-app-download_link-item"><a href="https://h.accesstrade.net/sp/cc?rk=0100o02t00kg6j" rel="nofollow"><img
+                                  src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/cpn01_btn_google_play.png') : asset('/img/cpn01_btn_google_play.png') }}"
+                                  alt="" width="128" height="48"><img src="https://h.accesstrade.net/sp/rr?rk=0100o02t00kg6j" width="1" height="1"
+                                              border="0" alt=""/></a></li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
                     <div class="c-shop">
@@ -150,7 +149,7 @@
                                                             <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__wolt" href="https://wolt.com{{ $shop->shop_id_wolt }}">Wolt</a></li>
                                                         @endif
                                                         @if ( $shop->shop_id_foodpanda )
-                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__foodpanda" href="#">foodpanda</a></li>
+                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__foodpanda" href="https://www.foodpanda.co.jp/{{ $shop->shop_id_foodpanda }}">foodpanda</a></li>
                                                         @endif
                                                         @if ( $shop->shop_id_foodneko )
                                                             <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__foodneko" href="">foodneko</a></li>

@@ -603,12 +603,13 @@
 
 .c-location-app-download {
   margin: 16px 12px;
-  padding: 7px 0 2px;
+  padding: 8px 0 2px;
   display: flex;
   border: 1px solid #DDDDDD;
   border-left: 3px solid #FFA800;
   border-radius: 10px;
   justify-content: space-between;
+  align-items: center;
   @include mq(small) {
     display: none;
   }
@@ -616,24 +617,27 @@
     padding-left: 10px;
     flex: 0 0 74px;
   }
-  &_center {
-    padding-right: 8px;
-  }
   &_right {
-    padding-right: 8px;
-    flex: 0 0 108px;
+    padding: 0 20px 3px 10px;
+    flex: 1 0;
   }
+
   &_links {
+    margin-top: 10px;
     padding: 0;
+    display: flex;
   }
   &_link-item {
-
+    margin-left: 4px;
+    &:first-child{
+      margin-left: -4px;
+    }
   }
   &_title {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     em {
-      font-size: 16px;
+      font-size: 20px;
       font-style: normal;
     }
   }
@@ -643,12 +647,17 @@
   }
   &_coupon {
     font-size: 12px;
+    margin-top: 4px;
+    line-height: 1.7;
     span {
       background: #EFEFEF;
       color: #D00F30;
       display: inline-block;
       border-radius: 4px;
       padding: 1px 6px 2px;
+    }
+    &_buttons {
+      margin-top: 11px;
     }
   }
 }
