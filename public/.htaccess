@@ -106,3 +106,22 @@
 
     </IfModule>
 </IfModule>
+
+SetEnvIf User-Agent "SemrushBot" jogai
+SetEnvIf User-Agent "AhrefsBot" jogai
+SetEnvIf User-Agent "Linguee" jogai
+SetEnvIf User-Agent "proximic" jogai
+SetEnvIf User-Agent "BLEXBot" jogai
+SetEnvIf User-Agent "GrapeshotCrawler" jogai
+SetEnvIf User-Agent "Mappy" jogai
+SetEnvIf User-Agent "MJ12bot" jogai
+SetEnvIf User-Agent "MegaIndex" jogai
+SetEnvIf User-Agent "bidswitchbot" jogai
+SetEnvIf User-Agent "SMTBot" jogai
+SetEnvIf User-Agent "ltx71" jogai
+SetEnvIf User-Agent "integralads" jogai
+SetEnvIf User-Agent "jet-bot" jogai
+SetEnvIf User-Agent "trendictionbot" jogai
+order Allow,Deny
+Allow from all
+Deny from env=jogai
