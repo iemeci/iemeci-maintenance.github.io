@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+  <title>プライバシーポリシー - {{ config('app.name') }}</title>
+@endsection
+
 @section('meta')
   <meta property="og:title" content="{{ config('app.name') }}{{ config('app.name_description') }}。">
   <meta property="og:type" content="website">
