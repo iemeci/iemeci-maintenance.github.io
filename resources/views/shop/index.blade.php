@@ -134,7 +134,7 @@
                                                             <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__uber-eats" href="{{ 'https://www.ubereats.com' . $shop->shop_url_uber_eats }}" rel="nofollow">Uber <span>Eats</span></a></li>
                                                         @endif
                                                         @if ( $shop->shop_url_demaekan )
-                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__demaekan" href="{{ 'https://demae-can.com' . $shop->shop_url_demaekan }}" rel="nofollow">出前館</a></li>
+                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__demaekan" href="{{ 'https://click.linksynergy.com/deeplink?id=aO9EyjOYnlA&mid=46515&murl=' . urlencode("https://demae-can.com" . $shop->shop_url_demaekan) }}" rel="nofollow">出前館</a><IMG border="0" width="1" height="1" src="http://ad.linksynergy.com/fs-bin/show?id=GSFNlAS0O*w&bids=186984.100002&type=3&subid=0"></li>
                                                         @endif
                                                         @if ( $shop->shop_url_d_delivery )
                                                             <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__d-delivery" href="https://px.a8.net/svt/ejp?a8mat=3BG3ZA+XXR16+3CLO+BW8O2&a8ejpredirect={{ urlencode('https://delivery.dmkt-sp.jp' . $shop->shop_url_d_delivery) }}" rel="nofollow">ｄデリバリー</a><img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=3BG3ZA+XXR16+3CLO+BW8O2" alt=""></li>
@@ -151,9 +151,9 @@
                                                         @if ( $shop->shop_id_foodpanda )
                                                             <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__foodpanda" href="https://www.foodpanda.co.jp/{{ $shop->shop_id_foodpanda }}">foodpanda</a></li>
                                                         @endif
-                                                        @if ( $shop->shop_id_foodneko )
-                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__foodneko" href="">foodneko</a></li>
-                                                        @endif
+{{--                                                        @if ( $shop->shop_id_foodneko )--}}
+{{--                                                            <li class="c-shop-enable_item"><a class="c-shop-enable_link c-shop-enable_link__foodneko" href="">foodneko</a></li>--}}
+{{--                                                        @endif--}}
                                                     </ul>
                                                 @endif
                                             </div>
