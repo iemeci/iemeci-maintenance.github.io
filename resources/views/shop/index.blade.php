@@ -14,17 +14,17 @@
   @if(!isset($street_id))
     <link rel="canonical" href="{{ route('m_street.index', ['street_id' => $street->street_id]) }}">
   @endif
-  <meta name="description" content="{{ $street->city_name . $street->town_name }}{{ $street->town_name === $street->street_name ? '' : $street->street_name }}の出前・デリバリー・宅配を一括検索するならいえメシへ。全国7サイト39,907店舗のデリバリーを無料で簡単に比較・検索できます。取扱サービスは、Uber Eats, 出前館, ｄデリバリー, 楽天デリバリー, menu, Wolt, foodpanda。">
+  <meta name="description" content="{{ $street->city_name . $street->town_name }}{{ $street->town_name === $street->street_name ? '' : $street->street_name }}の出前・デリバリー・宅配を一括検索するならいえメシへ。全国7サイト40,091店舗のデリバリーを無料で簡単に比較・検索できます。取扱サービスは、Uber Eats, 出前館, ｄデリバリー, 楽天デリバリー, menu, Wolt, foodpanda。">
   <meta property="og:title" content="{{ $street->city_name . $street->town_name }}{{ $street->town_name === $street->street_name ? '' : $street->street_name }}でおすすめの出前・デリバリー・宅配を一括比較 - {{ config('app.name') }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ request()->fullUrl() }}">
   <meta property="og:image" content="{{ secure_asset('/img/app-icon/ogp-image.png')  }}">
   <meta property="og:site_name" content="{{ config('app.name') }}{{ config('app.name_description') }}。">
-  <meta property="og:description" content="{{ $street->city_name . $street->town_name }}{{ $street->town_name === $street->street_name ? '' : $street->street_name }}の出前・デリバリー・宅配を一括検索するならいえメシへ。全国7サイト39,907店舗のデリバリーを無料で簡単に比較・検索できます。取扱サービスは、Uber Eats, 出前館, ｄデリバリー, 楽天デリバリー, menu, Wolt, foodpanda。">
+  <meta property="og:description" content="{{ $street->city_name . $street->town_name }}{{ $street->town_name === $street->street_name ? '' : $street->street_name }}の出前・デリバリー・宅配を一括検索するならいえメシへ。全国7サイト40,091店舗のデリバリーを無料で簡単に比較・検索できます。取扱サービスは、Uber Eats, 出前館, ｄデリバリー, 楽天デリバリー, menu, Wolt, foodpanda。">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="iemeci">
   <meta name="twitter:title" content="{{ $street->city_name . $street->town_name }}{{ $street->town_name === $street->street_name ? '' : $street->street_name }}でおすすめの出前・デリバリー・宅配を一括比較 - {{ config('app.name') }}">
-  <meta name="twitter:description" content="{{ $street->city_name . $street->town_name }}{{ $street->town_name === $street->street_name ? '' : $street->street_name }}の出前・デリバリー・宅配を一括検索するならいえメシへ。全国7サイト39,907店舗のデリバリーを無料で簡単に比較・検索できます。取扱サービスは、Uber Eats, 出前館, ｄデリバリー, 楽天デリバリー, menu, Wolt, foodpanda。">
+  <meta name="twitter:description" content="{{ $street->city_name . $street->town_name }}{{ $street->town_name === $street->street_name ? '' : $street->street_name }}の出前・デリバリー・宅配を一括検索するならいえメシへ。全国7サイト40,091店舗のデリバリーを無料で簡単に比較・検索できます。取扱サービスは、Uber Eats, 出前館, ｄデリバリー, 楽天デリバリー, menu, Wolt, foodpanda。">
   <meta name="twitter:image" content="{{ secure_asset('/img/app-icon/ogp-image.png')  }}">
 @endsection
 
