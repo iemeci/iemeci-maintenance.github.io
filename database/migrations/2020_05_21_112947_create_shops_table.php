@@ -23,7 +23,7 @@ class CreateShopsTable extends Migration
             $table->float('shop_score', 3, 2)->comment('店舗スコア')->nullable();
             $table->text('shop_thumbnail_url')->comment('店舗サムネイルURL')->nullable();
             $table->text('shop_url_tabelog')->comment('店舗食べログURL');
-            $table->string('shop_url_uber_eats', 500)->comment('店舗UberEats URL')->nullable();
+            $table->string('shop_url_uber_eats', 600)->comment('店舗UberEats URL')->nullable();
             $table->string('shop_url_demaekan', 30)->comment('店舗出前館 URL')->nullable();
             $table->string('shop_url_d_delivery', 30)->comment('店舗dデリバリー URL')->nullable();
             $table->string('shop_url_rakuten_delivery', 30)->comment('店舗楽天デリバリー URL')->nullable();
