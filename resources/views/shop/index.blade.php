@@ -61,27 +61,7 @@
                 </div>
                 @if($shops->total())
                     <div class="c-location-suggestion"><a href="https://forms.gle/vEtrG3QMQ1LwXFnz6" target="_blank">リンクの修正を提案</a></div>
-                    <div class="c-location-app-download">
-                      <div class="c-location-app-download_left">
-                        <img src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/cpn01_logo_menu.png') : asset('/img/cpn01_logo_menu.png') }}" alt="" width="64" height="64">
-                      </div>
-                      <div class="c-location-app-download_right">
-                        <div class="c-location-app-download_title"><em>menu</em> : 初回1500円クーポン</div>
-                        <div class="c-location-app-download_coupon">下のボタンからアプリをダウンロードし、クーポンコード<span>36801</span>を入力すると、デリバリーで使える750円OFFクーポンが2枚もらえます。</div>
-                        <div class="c-location-app-download_coupon_buttons">
-                          <ul class="c-location-app-download_links">
-                            <li class="c-location-app-download_link-item"><a href="https://h.accesstrade.net/sp/cc?rk=0100o02u00kg6j" rel="nofollow"><img
-                                  src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/cpn01_btn_app_store.png') : asset('/img/cpn01_btn_app_store.png') }}"
-                                  alt="" width="128" height="48"><img src="https://h.accesstrade.net/sp/rr?rk=0100o02u00kg6j" width="1" height="1"
-                                              border="0" alt=""/></a></li>
-                            <li class="c-location-app-download_link-item"><a href="https://h.accesstrade.net/sp/cc?rk=0100o02t00kg6j" rel="nofollow"><img
-                                  src="{{ app('env') == 'production' || app('env') == 'staging' ? secure_asset('/img/cpn01_btn_google_play.png') : asset('/img/cpn01_btn_google_play.png') }}"
-                                  alt="" width="128" height="48"><img src="https://h.accesstrade.net/sp/rr?rk=0100o02t00kg6j" width="1" height="1"
-                                              border="0" alt=""/></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
+                    @include('includes.carousel')
                     <div class="c-shop">
                         <ul class="c-shop-list">
                             @foreach($shops as $shop)
