@@ -1,0 +1,32 @@
+.c-maintenance {
+    margin: 38px 29px 0;
+}
+@media (min-width: 480px) {
+    .c-maintenance {
+        max-width: 530px;
+        margin: 38px auto 0;
+    }
+}
+
+.c-maintenance-img {
+    text-align: center;
+}
+
+.c-maintenance-img img {
+    width: 100%;
+    height: 100%;
+    max-width: 530px;
+    max-height: 299px;
+    border-radius: 20px;
+}
+
+.c-maintenance-title {
+    margin: 27px 0 0;
+    font-size: 24px;
+}
+
+.c-maintenance-paragraph {
+    margin-top: 20px;
+    line-height: 1.7;
+}
+
